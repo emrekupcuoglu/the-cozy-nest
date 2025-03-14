@@ -6,6 +6,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { HiArrowLongRight } from "react-icons/hi2";
+import { IoClose } from "react-icons/io5";
 
 function FAQ() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -15,8 +17,18 @@ function FAQ() {
         <AccordionItem className="" value="1">
           <AccordionTrigger
             className="bg-card-grey p-4 text-2xl"
-            isSelected={selectedIndex === 0}
             onClick={() => setSelectedIndex(0)}
+            icon={
+              selectedIndex === 0 ? (
+                <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
+                  <IoClose className="mx-auto" />
+                </span>
+              ) : (
+                <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
+                  <HiArrowLongRight className="mx-auto text-center" />
+                </span>
+              )
+            }
           >
             What is your return policy?
           </AccordionTrigger>
@@ -31,8 +43,18 @@ function FAQ() {
         <AccordionItem value="2">
           <AccordionTrigger
             className="bg-card-grey p-4 text-2xl"
-            isSelected={selectedIndex === 1}
             onClick={() => setSelectedIndex(1)}
+            icon={
+              selectedIndex === 1 ? (
+                <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
+                  <IoClose className="mx-auto" />
+                </span>
+              ) : (
+                <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
+                  <HiArrowLongRight className="mx-auto text-center" />
+                </span>
+              )
+            }
           >
             <p>How long does shipping take?</p>
           </AccordionTrigger>

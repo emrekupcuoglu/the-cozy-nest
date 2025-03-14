@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "lucide-react";
@@ -31,11 +29,9 @@ function AccordionTrigger({
   className,
   children,
   icon,
-  isSelected,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
   icon?: React.ReactNode;
-  isSelected?: boolean;
 }) {
   return (
     <AccordionPrimitive.Header className="flex data-[state=open]:text-white">
@@ -48,20 +44,11 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        {/* {!icon && (
+        {!icon && (
           <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
         )}
-        {icon} */}
-        {isSelected && (
-          <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
-            <IoClose className="mx-auto" />
-          </span>
-        )}
-        {!isSelected && (
-          <span className="w-16 rounded-full bg-white px-4 py-2 text-center text-xl font-bold text-black">
-            <HiArrowLongRight className="mx-auto text-center" />
-          </span>
-        )}
+
+        {icon}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
