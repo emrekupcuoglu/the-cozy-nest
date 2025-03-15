@@ -5,7 +5,7 @@ import HeroText from "./HeroText";
 
 async function Hero() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       {/* set the margins background color */}
       <div className="bg-background-hero">
         <div className="mx-auto max-w-7xl">
