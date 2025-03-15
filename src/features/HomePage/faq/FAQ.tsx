@@ -32,7 +32,7 @@ function FAQ() {
           >
             What is your return policy?
           </AccordionTrigger>
-          <AccordionContent className="p-4">
+          <AccordionContent className="data-[state=open]:bg-background-hero p-4">
             <p className="text-lg">
               We offer a 30-day return policy. If you are not satisfied with
               your purchase, you can return it within 30 days of receiving your
@@ -58,7 +58,7 @@ function FAQ() {
           >
             <p>How long does shipping take?</p>
           </AccordionTrigger>
-          <AccordionContent className="p-4">
+          <AccordionContent className="data-[state=open]:bg-background-hero p-4">
             <p className="text-lg">
               Shipping times vary depending on your location. Typically, orders
               are processed within 2-3 business days and shipping takes an
