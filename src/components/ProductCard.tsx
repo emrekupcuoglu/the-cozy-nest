@@ -11,7 +11,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { GoHeartFill } from "react-icons/go";
 
-function TrendingCard({
+function ProductCard({
   product,
 }: {
   product: {
@@ -59,4 +59,4 @@ function TrendingCard({
   );
 }
 
-export default TrendingCard;
+export default ProductCard;

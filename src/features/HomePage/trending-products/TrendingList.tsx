@@ -1,10 +1,4 @@
-import TrendingCard from "./TrendingCard";
-
-import sofa from "@/../public/sofa.png";
-import sofa2 from "@/../public/sofa-2.png";
-import sofa3 from "@/../public/sofa-3.png";
-import chair from "@/../public/chair-3.png";
-import pillow from "@/../public/pillow-2.png";
+import ProductCard from "@/components/ProductCard";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type Product = {
@@ -26,7 +20,7 @@ function TrendingList({
   return (
     <div className="grid grid-cols-3 justify-items-center gap-y-16">
       {productsByCategory[activeCategory].map((product) => (
-        <TrendingCard key={product.name} product={product} />
+        <ProductCard key={product.name} product={product} />
       ))}
     </div>
   );
