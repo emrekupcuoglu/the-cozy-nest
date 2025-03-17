@@ -24,9 +24,11 @@ type CarouselProps = {
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
   api: ReturnType<typeof useEmblaCarousel>[1];
+  carouselThumbRef: ReturnType<typeof useEmblaCarousel>[0];
+  apiThumb: ReturnType<typeof useEmblaCarousel>[1];
   scrollPrev: () => void;
   scrollNext: () => void;
-  onDotButtonClick: (index: number) => void;
+  onThumbButtonClick: (index: number) => void;
   selectedIndex: number;
   scrollSnaps: number[];
   canScrollPrev: boolean;
@@ -61,6 +63,16 @@ function Carousel({
     },
     plugins,
   );
+
+  const [carouselThumbRef, apiThumb] = useEmblaCarousel(
+    {
+      ...opts,
+      axis: orientation === "horizontal" ? "x" : "y",
+      containScroll: "keepSnaps",
+      dragFree: true,
+    },
+    plugins,
+  );
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
@@ -68,7 +80,7 @@ function Carousel({
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
 
-  const onDotButtonClick = React.useCallback(
+  const onThumbButtonClick = React.useCallback(
     (index: number) => {
       if (!api) return;
       api.scrollTo(index);
@@ -76,12 +88,13 @@ function Carousel({
     [api],
   );
 
-  const onSelect = React.useCallback((api: CarouselApi) => {
-    if (!api) return;
+  const onSelect = React.useCallback(() => {
+    if (!api || !apiThumb) return;
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
     setSelectedIndex(api.selectedScrollSnap());
-  }, []);
+    apiThumb.scrollTo(api.selectedScrollSnap());
+  }, [api, apiThumb]);
 
   const scrollPrev = React.useCallback(() => {
     api?.scrollPrev();
@@ -117,10 +130,10 @@ function Carousel({
   }, [api, setApi]);
 
   React.useEffect(() => {
-    if (!api) return;
+    if (!api || !apiThumb) return;
     onInit(api);
 
-    onSelect(api);
+    onSelect();
     api.on("reInit", onSelect);
     api.on("select", onSelect);
 
@@ -141,11 +154,13 @@ function Carousel({
           orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
         scrollPrev,
         scrollNext,
-        onDotButtonClick,
+        onThumbButtonClick,
         selectedIndex,
         scrollSnaps,
         canScrollPrev,
         canScrollNext,
+        carouselThumbRef,
+        apiThumb,
       }}
     >
       <div
@@ -162,13 +177,46 @@ function Carousel({
   );
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
+function CarouselContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden"
+      className={cn("overflow-hidden", className)}
+      data-slot="carousel-content"
+    >
+      <div
+        className={cn(
+          "flex",
+          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function CarouselThumbnail({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode;
+  className?: string;
+} & React.ComponentProps<"div">) {
+  const { carouselThumbRef, orientation } = useCarousel();
+
+  return (
+    <div
+      ref={carouselThumbRef}
+      className="mx-auto w-full overflow-hidden"
       data-slot="carousel-content"
     >
       <div
@@ -178,7 +226,9 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
           className,
         )}
         {...props}
-      />
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -198,6 +248,31 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
       )}
       {...props}
     />
+  );
+}
+
+function CarouselThumbnailItem({
+  className,
+  index,
+  children,
+  ...props
+}: {
+  index: number;
+} & React.ComponentProps<"div">) {
+  const { onThumbButtonClick, selectedIndex, orientation } = useCarousel();
+
+  return (
+    <div
+      {...props}
+      onClick={() => onThumbButtonClick(index)}
+      className={cn(
+        "bg-background flex min-w-0 shrink-0 grow-0 basis-1/3 p-1 pl-4",
+        `${orientation === "vertical" ? "pb-1" : "pr-1"}`,
+        className,
+      )}
+    >
+      <div className="relative mx-auto aspect-square w-full">{children}</div>
+    </div>
   );
 }
 
@@ -271,13 +346,13 @@ function CarouselNext({
   );
 }
 
-export function CarouselDotButton({
+function CarouselDotButton({
   className,
   variant = "outline",
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, onDotButtonClick, selectedIndex, scrollSnaps } =
+  const { orientation, onThumbButtonClick, selectedIndex, scrollSnaps } =
     useCarousel();
 
   return (
@@ -299,12 +374,9 @@ export function CarouselDotButton({
                 : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
               className,
             )}
-            // disabled={!canScrollNext}
-            onClick={() => onDotButtonClick(i)}
+            onClick={() => onThumbButtonClick(i)}
             {...props}
           >
-            {/* <ArrowRight /> */}
-
             <span className="sr-only">Next slide</span>
           </Button>
         );
@@ -320,4 +392,7 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDotButton,
+  CarouselThumbnail,
+  CarouselThumbnailItem,
 };
