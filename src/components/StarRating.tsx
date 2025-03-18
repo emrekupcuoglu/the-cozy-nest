@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { IoStar, IoStarHalf, IoStarOutline } from "react-icons/io5";
 
 function StarRating() {

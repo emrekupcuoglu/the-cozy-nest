@@ -15,7 +15,7 @@ function Testimonials() {
     <div className="pb-24">
       <div className="flex justify-between">
         <h2 className="text-4xl">
-          Don't take our word, see what are clients are saying
+          Don&apos;t take our word, see what are clients are saying
         </h2>
       </div>
 

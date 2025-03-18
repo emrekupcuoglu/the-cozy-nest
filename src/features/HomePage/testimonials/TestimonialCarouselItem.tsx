@@ -17,7 +17,7 @@ function TestimonialCarouselItem({ src }: { src: string | StaticImport }) {
         <div className="flex w-full flex-col justify-center gap-16 pt-8">
           <p className="">
             I recently purchased a beautiful living room set from The Cozy Nest,
-            and I couldn't be happier with my purchase. The quality of the
+            and I couldn&apos;t be happier with my purchase. The quality of the
             furniture is top-notch, it looks even better in person than online.
             And the customer service was excellent. I highly recommend The Cozy
             Nest to anyone looking for high-quality furniture at affordable

@@ -1,8 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import arrowSvg from "@/../public/bullet-point-arrow.svg";
-import ProductDescription from "./ProductDescription";
 import { useState } from "react";
+import ProductDescription from "./ProductDescription";
 import ProductTechnicalDetails from "./ProductTechnicalDetails";
 
 function ProductInformation() {

@@ -41,7 +41,7 @@ function FlashSale() {
                   </h3>
                   <p>
                     Bring a touch of retro charm to your home with this vintage
-                    armchair. Sturdy and durable, it's perfect for a cozy
+                    armchair. Sturdy and durable, it&apos;s perfect for a cozy
                     reading.
                   </p>
                   <Button className="bg-card-action self-center px-24 text-white">
@@ -112,7 +112,7 @@ function FlashSale() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <h3 className="text-lg">Best Deals Online, Only This Week</h3>
-                  <p>Don't miss this limited offer</p>
+                  <p>Don&apos;t miss this limited offer</p>
                   <Button className="bg-card-action self-start rounded-full p-4">
                     <div className="flex items-center gap-2 px-4">
                       Get Best Deals <HiArrowLongRight />

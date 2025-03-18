@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-
 const features = [
   "Sleek black leather finish",
   "Sturdy metal legs",
@@ -18,13 +16,14 @@ function ProductDescription() {
           This luxurious chair features a sleek black leather finish, providing
           both style and comfort. Its modern design is complemented by sturdy
           metal legs, making it a perfect addition to any contemporary living
-          space. The chair's ergonomic design ensures maximum comfort, with a
-          high backrest and cushioned seat that provide excellent support for
+          space. The chair&apos;s ergonomic design ensures maximum comfort, with
+          a high backrest and cushioned seat that provide excellent support for
           long periods of sitting. Additionally, the leather material is easy to
           clean and maintain, ensuring that the chair remains in pristine
-          condition for years to come. Whether you're using it in your living
-          room, office, or study, this chair is sure to enhance the aesthetic
-          appeal of any room while offering unparalleled comfort and durability.
+          condition for years to come. Whether you&apos;re using it in your
+          living room, office, or study, this chair is sure to enhance the
+          aesthetic appeal of any room while offering unparalleled comfort and
+          durability.
         </p>
 
         <h3 className="pb-6 text-4xl">About This Item</h3>

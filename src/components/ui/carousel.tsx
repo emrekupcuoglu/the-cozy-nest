@@ -142,7 +142,7 @@ function Carousel({
     return () => {
       api?.off("select", onSelect).off("reInit", onInit);
     };
-  }, [api, onSelect, onInit]);
+  }, [api, onSelect, onInit, apiThumb]);
 
   return (
     <CarouselContext.Provider
@@ -259,7 +259,7 @@ function CarouselThumbnailItem({
 }: {
   index: number;
 } & React.ComponentProps<"div">) {
-  const { onThumbButtonClick, selectedIndex, orientation } = useCarousel();
+  const { onThumbButtonClick, orientation } = useCarousel();
 
   return (
     <div
@@ -300,7 +300,7 @@ function CarouselPrevious({
       )}
       disabled={!canScrollPrev}
       onClick={(e) => {
-        onClick && onClick(e);
+        if (onClick) onClick(e);
         scrollPrev();
       }}
       {...props}
@@ -335,7 +335,7 @@ function CarouselNext({
       )}
       disabled={!canScrollNext}
       onClick={(e) => {
-        onClick && onClick(e);
+        if (onClick) onClick(e);
         scrollNext();
       }}
       {...props}

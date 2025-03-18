@@ -1,16 +1,7 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 import { Checkbox } from "@/components/ui/checkbox";
 
 import {
-  Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,7 +14,8 @@ function ProductFilterMultipleCheckBoxes({
   form,
 }: {
   items: { id: string; name: string }[];
-  form: UseFormReturn<ProductFormProps, any, undefined>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  form: UseFormReturn<ProductFormProps>;
 }) {
   return (
     <FormField

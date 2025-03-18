@@ -1,4 +1,3 @@
-import { supabase } from "@/lib/supabase/supabase";
 import HeroGallery from "./HeroGallery";
 import HeroIcons from "./HeroIcons";
 import HeroText from "./HeroText";

@@ -9,7 +9,6 @@ import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
-import { GoHeartFill } from "react-icons/go";
 
 function ProductCard({
   product,

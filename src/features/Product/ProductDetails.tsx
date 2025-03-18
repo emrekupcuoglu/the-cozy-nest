@@ -10,14 +10,13 @@ import {
 
 import Image from "next/image";
 
-import chairFront from "@/../public/chair-details-front.png";
 import chairBack from "@/../public/chair-details-back.png";
+import chairFront from "@/../public/chair-details-front.png";
 import chairSide from "@/../public/chair-details-side.png";
-import chairTest from "@/../public/chair-details-2-front.png";
 import StarRating from "@/components/StarRating";
+import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import ProductDetailsAddToCart from "./ProductDetailsAddToCart";
-import { cn } from "@/lib/utils";
 
 function ProductDetails({ className }: { className: string }) {
   return (

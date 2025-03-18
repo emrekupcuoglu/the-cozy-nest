@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import clockImg from "@/../public/wall-clock.png";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 function FeaturedCarouselItem({
