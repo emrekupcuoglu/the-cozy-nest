@@ -1,16 +1,15 @@
-import { Metadata } from "next";
-import Hero from "../features/HomePage/hero/Hero";
-import NewCollection from "@/features/HomePage/new-collection/NewCollection";
 import Featured from "@/features/HomePage/featured-categories/Featured";
+import NewCollection from "@/features/HomePage/new-collection/NewCollection";
 import TrendingProducts from "@/features/HomePage/trending-products/TrendingProducts";
+import { Metadata } from "next";
 import { Suspense } from "react";
+import Hero from "../features/HomePage/hero/Hero";
 
-import FlashSale from "@/features/HomePage/flash-sale/FlashSale";
-import Testimonials from "@/features/HomePage/testimonials/Testimonials";
 import BlogShowcase from "@/features/HomePage/blog-showcase/BlogShowcase";
 import FAQ from "@/features/HomePage/faq/FAQ";
+import FlashSale from "@/features/HomePage/flash-sale/FlashSale";
 import NewsletterBanner from "@/features/HomePage/newsletter-banner/NewsletterBanner";
-import Footer from "@/components/Footer";
+import Testimonials from "@/features/HomePage/testimonials/Testimonials";
 
 export const metadata: Metadata = { title: "Cozy Nest | Build your dream" };
 export default function Home() {

@@ -1,8 +1,8 @@
+import "@/app/globals.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AdminSidebar from "@/features/Admin/AdminSidebar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@/app/globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
       >
-        <div className="bg-background-hero">
-          <Header />
-        </div>
-
-        <main className="">{children}</main>
-        <Footer />
+        <SidebarProvider>
+          <aside>
+            <AdminSidebar />
+          </aside>
+          <main className="">{children}</main>
+        </SidebarProvider>
       </body>
     </html>
   );

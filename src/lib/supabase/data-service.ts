@@ -1,48 +1,22 @@
-import { supabase } from "./supabase";
+import { createClient } from "./server";
 
-export async function getCurrentUser() {
-  return await supabase.auth.getUser();
-}
+export async function getCurrentUserServer() {
+  const supabase = await createClient();
+  const { data: session } = await supabase.auth.getSession();
 
-export async function signup({
-  fullName,
-  email,
-  password,
-}: {
-  fullName: string;
-  email: string;
-  password: string;
-}) {
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { fullName },
-    },
-  });
+  if (!session.session) {
+    return null;
+  }
+
+  const { data: user, error } = await supabase.auth.getUser();
 
   if (error) {
-    console.error(error.message);
+    console.error(error);
     throw new Error(error.message);
   }
-  return data;
-}
 
-export async function login({
-  email,
-  password,
-}: {
-  email: string;
-  password: string;
-}) {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    console.error(error.message);
-    throw new Error(error.message);
-  }
-  return data;
+  return {
+    user: user.user,
+    isAuthenticated: user.user.role === "authenticated",
+  };
 }
