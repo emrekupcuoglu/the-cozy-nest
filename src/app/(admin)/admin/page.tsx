@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 async function Admin() {
   const userData = await getCurrentUserServer();
 
-  console.log("userData", userData);
   if (!userData) redirect("/admin/auth/login");
 
   if (!userData.isAuthenticated) redirect("/admin/auth/login");

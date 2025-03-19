@@ -3,7 +3,7 @@ import NewCollection from "@/features/HomePage/new-collection/NewCollection";
 import TrendingProducts from "@/features/HomePage/trending-products/TrendingProducts";
 import { Metadata } from "next";
 import { Suspense } from "react";
-import Hero from "../features/HomePage/hero/Hero";
+import Hero from "../../features/HomePage/hero/Hero";
 
 import BlogShowcase from "@/features/HomePage/blog-showcase/BlogShowcase";
 import FAQ from "@/features/HomePage/faq/FAQ";
