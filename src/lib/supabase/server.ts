@@ -1,11 +1,15 @@
-import { createServerClient } from "@supabase/ssr";
+import {
+  createServerClient as createServerClientAPI,
+  createBrowserClient as createBrowserClientAPI,
+} from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { Database } from "./database.types";
 
-export async function createClient() {
+export async function createServerClient() {
   const cookieStore = await cookies();
 
-  return createServerClient(
-    process.env.SUPABASE_URL!,
+  return createServerClientAPI<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_KEY!,
     {
       cookies: {
@@ -25,5 +29,12 @@ export async function createClient() {
         },
       },
     },
+  );
+}
+
+export async function createBrowserClient() {
+  return createBrowserClientAPI<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_KEY!,
   );
 }

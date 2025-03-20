@@ -1,9 +1,15 @@
 import { createClient } from "@supabase/supabase-js";
+
 import { Database } from "./database.types";
 
-if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY)
+if (
+  !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+)
   throw new Error("Problem connecting to the database");
-export const supabase = createClient<Database>(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY,
+export const supabaseClientAnon = createClient<Database>(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
 );
+
+// ! This overrides the Row Level Security (RLS) policy

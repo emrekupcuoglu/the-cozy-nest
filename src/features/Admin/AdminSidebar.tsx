@@ -24,12 +24,12 @@ function AdminSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="">All products</Link>
+                  <Link href="/admin/products">All products</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/admin/new">New Product</Link>
+                  <Link href="/admin/products/new">New Product</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               {/* <SidebarMenuItem>
@@ -37,6 +37,24 @@ function AdminSidebar() {
                   <Link href="">3</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem> */}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Media</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <Link href="/admin/media">Media</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <Link href="/admin/media/new">New media</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

@@ -4,329 +4,112 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export type Database = {
   public: {
     Tables: {
-      media: {
+      Cart: {
         Row: {
-          alt: string
-          created_at: string
-          filename: string | null
-          filesize: number | null
-          focal_x: number | null
-          focal_y: number | null
-          height: number | null
-          id: number
-          mime_type: string | null
-          prefix: string | null
-          src: string | null
-          thumbnail_u_r_l: string | null
-          updated_at: string
-          url: string | null
-          width: number | null
-        }
+          created_at: string;
+          id: number;
+          user_id: string;
+        };
         Insert: {
-          alt: string
-          created_at?: string
-          filename?: string | null
-          filesize?: number | null
-          focal_x?: number | null
-          focal_y?: number | null
-          height?: number | null
-          id?: number
-          mime_type?: string | null
-          prefix?: string | null
-          src?: string | null
-          thumbnail_u_r_l?: string | null
-          updated_at?: string
-          url?: string | null
-          width?: number | null
-        }
+          created_at?: string;
+          id?: number;
+          user_id: string;
+        };
         Update: {
-          alt?: string
-          created_at?: string
-          filename?: string | null
-          filesize?: number | null
-          focal_x?: number | null
-          focal_y?: number | null
-          height?: number | null
-          id?: number
-          mime_type?: string | null
-          prefix?: string | null
-          src?: string | null
-          thumbnail_u_r_l?: string | null
-          updated_at?: string
-          url?: string | null
-          width?: number | null
-        }
-        Relationships: []
-      }
-      payload_locked_documents: {
+          created_at?: string;
+          id?: number;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
+      CartItem: {
         Row: {
-          created_at: string
-          global_slug: string | null
-          id: number
-          updated_at: string
-        }
+          cart_id: number | null;
+          created_at: string;
+          id: number;
+          product: number | null;
+        };
         Insert: {
-          created_at?: string
-          global_slug?: string | null
-          id?: number
-          updated_at?: string
-        }
+          cart_id?: number | null;
+          created_at?: string;
+          id?: number;
+          product?: number | null;
+        };
         Update: {
-          created_at?: string
-          global_slug?: string | null
-          id?: number
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      payload_locked_documents_rels: {
-        Row: {
-          id: number
-          media_id: number | null
-          order: number | null
-          parent_id: number
-          path: string
-          product_id: number | null
-          users_id: number | null
-        }
-        Insert: {
-          id?: number
-          media_id?: number | null
-          order?: number | null
-          parent_id: number
-          path: string
-          product_id?: number | null
-          users_id?: number | null
-        }
-        Update: {
-          id?: number
-          media_id?: number | null
-          order?: number | null
-          parent_id?: number
-          path?: string
-          product_id?: number | null
-          users_id?: number | null
-        }
+          cart_id?: number | null;
+          created_at?: string;
+          id?: number;
+          product?: number | null;
+        };
         Relationships: [
           {
-            foreignKeyName: "payload_locked_documents_rels_media_fk"
-            columns: ["media_id"]
-            isOneToOne: false
-            referencedRelation: "media"
-            referencedColumns: ["id"]
+            foreignKeyName: "CartItem_cart_id_fkey";
+            columns: ["cart_id"];
+            isOneToOne: false;
+            referencedRelation: "Cart";
+            referencedColumns: ["id"];
           },
           {
-            foreignKeyName: "payload_locked_documents_rels_parent_fk"
-            columns: ["parent_id"]
-            isOneToOne: false
-            referencedRelation: "payload_locked_documents"
-            referencedColumns: ["id"]
+            foreignKeyName: "CartItem_product_fkey";
+            columns: ["product"];
+            isOneToOne: false;
+            referencedRelation: "Product";
+            referencedColumns: ["id"];
           },
-          {
-            foreignKeyName: "payload_locked_documents_rels_product_fk"
-            columns: ["product_id"]
-            isOneToOne: false
-            referencedRelation: "product"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "payload_locked_documents_rels_users_fk"
-            columns: ["users_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      payload_migrations: {
+        ];
+      };
+      Product: {
         Row: {
-          batch: number | null
-          created_at: string
-          id: number
-          name: string | null
-          updated_at: string
-        }
+          category: string | null;
+          color: string | null;
+          created_at: string;
+          features: Json | null;
+          id: number;
+          material: string | null;
+          price: number;
+        };
         Insert: {
-          batch?: number | null
-          created_at?: string
-          id?: number
-          name?: string | null
-          updated_at?: string
-        }
+          category?: string | null;
+          color?: string | null;
+          created_at?: string;
+          features?: Json | null;
+          id?: number;
+          material?: string | null;
+          price: number;
+        };
         Update: {
-          batch?: number | null
-          created_at?: string
-          id?: number
-          name?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      payload_preferences: {
-        Row: {
-          created_at: string
-          id: number
-          key: string | null
-          updated_at: string
-          value: Json | null
-        }
-        Insert: {
-          created_at?: string
-          id?: number
-          key?: string | null
-          updated_at?: string
-          value?: Json | null
-        }
-        Update: {
-          created_at?: string
-          id?: number
-          key?: string | null
-          updated_at?: string
-          value?: Json | null
-        }
-        Relationships: []
-      }
-      payload_preferences_rels: {
-        Row: {
-          id: number
-          order: number | null
-          parent_id: number
-          path: string
-          users_id: number | null
-        }
-        Insert: {
-          id?: number
-          order?: number | null
-          parent_id: number
-          path: string
-          users_id?: number | null
-        }
-        Update: {
-          id?: number
-          order?: number | null
-          parent_id?: number
-          path?: string
-          users_id?: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "payload_preferences_rels_parent_fk"
-            columns: ["parent_id"]
-            isOneToOne: false
-            referencedRelation: "payload_preferences"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "payload_preferences_rels_users_fk"
-            columns: ["users_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      product: {
-        Row: {
-          category: string
-          created_at: string
-          discount: number
-          id: number
-          name: string
-          price: number
-          src_id: number
-          updated_at: string
-        }
-        Insert: {
-          category: string
-          created_at?: string
-          discount: number
-          id?: number
-          name: string
-          price: number
-          src_id: number
-          updated_at?: string
-        }
-        Update: {
-          category?: string
-          created_at?: string
-          discount?: number
-          id?: number
-          name?: string
-          price?: number
-          src_id?: number
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "product_src_id_media_id_fk"
-            columns: ["src_id"]
-            isOneToOne: false
-            referencedRelation: "media"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      users: {
-        Row: {
-          created_at: string
-          email: string
-          hash: string | null
-          id: number
-          lock_until: string | null
-          login_attempts: number | null
-          reset_password_expiration: string | null
-          reset_password_token: string | null
-          salt: string | null
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          hash?: string | null
-          id?: number
-          lock_until?: string | null
-          login_attempts?: number | null
-          reset_password_expiration?: string | null
-          reset_password_token?: string | null
-          salt?: string | null
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          hash?: string | null
-          id?: number
-          lock_until?: string | null
-          login_attempts?: number | null
-          reset_password_expiration?: string | null
-          reset_password_token?: string | null
-          salt?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
-    }
+          category?: string | null;
+          color?: string | null;
+          created_at?: string;
+          features?: Json | null;
+          id?: number;
+          material?: string | null;
+          price?: number;
+        };
+        Relationships: [];
+      };
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
-}
+      [_ in never]: never;
+    };
+  };
+};
 
-type PublicSchema = Database[Extract<keyof Database, "public">]
+type PublicSchema = Database[Extract<keyof Database, "public">];
 
 export type Tables<
   PublicTableNameOrOptions extends
@@ -339,7 +122,7 @@ export type Tables<
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
       Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
@@ -347,11 +130,11 @@ export type Tables<
         PublicSchema["Views"])
     ? (PublicSchema["Tables"] &
         PublicSchema["Views"])[PublicTableNameOrOptions] extends {
-        Row: infer R
+        Row: infer R;
       }
       ? R
       : never
-    : never
+    : never;
 
 export type TablesInsert<
   PublicTableNameOrOptions extends
@@ -362,17 +145,17 @@ export type TablesInsert<
     : never = never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
   : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
     ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
-        Insert: infer I
+        Insert: infer I;
       }
       ? I
       : never
-    : never
+    : never;
 
 export type TablesUpdate<
   PublicTableNameOrOptions extends
@@ -383,17 +166,17 @@ export type TablesUpdate<
     : never = never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
   : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
     ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
-        Update: infer U
+        Update: infer U;
       }
       ? U
       : never
-    : never
+    : never;
 
 export type Enums<
   PublicEnumNameOrOptions extends
@@ -406,14 +189,14 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
-    : never
+    : never;
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof PublicSchema["CompositeTypes"]
     | { schema: keyof Database },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof Database;
   }
     ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
@@ -421,4 +204,4 @@ export type CompositeTypes<
   ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
     ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-    : never
+    : never;

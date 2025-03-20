@@ -1,10 +1,15 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createClient } from "./supabase/server";
+import { createServerClient, createBrowserClient } from "./supabase/server";
+
 import { loginFormSchema, LoginFormSchema } from "./validation/loginForm";
 
 import { SignupFormSchema, signupFormSchema } from "./validation/signupForm";
+import { MediaFormSchema } from "./validation/mediaForm";
+
+import sharp from "sharp";
+import { revalidatePath } from "next/cache";
 
 export async function login(inputData: LoginFormSchema) {
   const validatedData = loginFormSchema.safeParse(inputData);
@@ -20,7 +25,7 @@ export async function login(inputData: LoginFormSchema) {
     };
   }
 
-  const supabase = await createClient();
+  const supabase = await createServerClient();
   const { data, error } = await supabase.auth.signInWithPassword({
     email: inputData.email,
     password: inputData.password,
@@ -63,7 +68,7 @@ export async function signup(inputData: SignupFormSchema) {
   const password = validatedUserData.data.password;
 
   if (!fullName || !email || !password) return;
-  const supabase = await createClient();
+  const supabase = await createServerClient();
 
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -81,4 +86,61 @@ export async function signup(inputData: SignupFormSchema) {
   if (data?.user?.role !== "authenticated") redirect("/admin/");
 
   return { message: "Success" };
+}
+
+export async function createNewImage(inputData: MediaFormSchema) {
+  try {
+    const supabase = await createBrowserClient();
+    console.log("inputData", inputData);
+
+    const imageName = inputData.image[0].name.split(".")[0] + ".webp";
+
+    const img = inputData.image[0];
+
+    const optimizedImg = await optimizeImage(img);
+
+    const { data, error } = await supabase.storage
+      .from("product-images")
+      .upload(imageName, optimizedImg, {
+        contentType: "image/webp",
+      });
+
+    if (error) {
+      console.error(error.message);
+      throw new Error(error.message);
+    }
+
+    console.log("data", data);
+
+    return data;
+  } catch (err) {
+    console.log("------------");
+
+    console.error(err);
+  }
+
+  revalidatePath("/admin/media/new");
+}
+
+async function optimizeImage(image: File) {
+  const buffer = await image.arrayBuffer();
+  return await sharp(buffer).toFormat("webp").toBuffer();
+}
+
+export async function createProduct() {
+  const supabase = await createServerClient();
+
+  const { data, error } = await supabase.from("Product").insert({
+    price: 100,
+
+    category: "test",
+    color: "test",
+    material: "test",
+  });
+  if (error) {
+    console.error("error", error);
+  }
+
+  console.log("dataxxx", data);
+  return data;
 }
