@@ -21,7 +21,6 @@ import {
   checkoutFormSchema,
 } from "@/lib/validation/checkoutForm";
 import { checkout } from "@/lib/action";
-import Link from "next/link";
 
 function CheckoutForm() {
   const { cart } = useLocalStorageCart();
@@ -206,12 +205,8 @@ function CheckoutForm() {
             className="h-fit w-1/3"
           >
             <div className="flex justify-around">
-              <Button
-                asChild
-                type="submit"
-                className="bg-card-action hover:bg-action"
-              >
-                <Link href="/checkout/success">Confirm Payment</Link>
+              <Button type="submit" className="bg-card-action hover:bg-action">
+                Confirm Payment
               </Button>
               <Button className="bg-zinc-700">Cancel</Button>
             </div>

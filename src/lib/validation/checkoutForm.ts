@@ -11,7 +11,7 @@ export const checkoutFormSchema = z.object({
   zipcode: z.string().min(2).max(255),
   method: z.enum(["credit", "debit"]),
   cardOwner: z.string().min(2).max(255),
-  cardNo: z.string().min(2).max(255),
+  cardNo: z.string().min(16).max(16),
   expiration: z.string().date(),
   ccv: z.string().min(3).max(3),
 });
