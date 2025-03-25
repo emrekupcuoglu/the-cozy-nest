@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -6,29 +7,50 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useLocalStorage, useLocalStorageCart } from "@/hooks/useLocalStorage";
+import { Tables } from "@/lib/supabase/database.types";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
+import { Button } from "./ui/button";
+import { CartItemType, ProductType } from "@/types";
+import { useState } from "react";
 
 function ProductCard({
   product,
+  favorite = false,
 }: {
-  product: {
-    src: string | StaticImport;
-    name: string;
-    price: number;
-    discount: number;
-    favorite?: boolean;
-  };
+  product: Tables<"Product">;
+  favorite?: boolean;
 }) {
+  const { addToCart, cart, decrementQuantity } = useLocalStorageCart();
+
+  // const { getItem, setItem } = useLocalStorage();
+
+  // const itemQuantity =
+  //   getItem("cart")?.find((cartItem: any) => cartItem.id === product.id)
+  //     ?.quantity || 0;
+
+  // const [quantity, setQuantity] = useState(itemQuantity);
+  // productQuantityRef.current =
+  //   getItem("cart")?.find((cartItem: any) => cartItem.id === product.id)
+  //     ?.quantity || 0;
+
+  function handleAddToCart(product: ProductType) {
+    addToCart(product);
+  }
+  // function handleAddToCart(product: CartItemType) {
+  //   setQuantity((prev) => prev + 1);
+  //   setItem("cart", { ...product, quantity: product.quantity + 1 });
+  // }
+
   return (
-    <Card className="bg-card-grey w-full max-w-60 rounded-2xl border-none pb-0 text-white">
+    <Card className="bg-card-grey w-full max-w-96 rounded-2xl border-none pb-0 text-white">
       <CardHeader className="flex-row items-center justify-between">
         <span className="bg-background-light rounded-full px-4 py-2">
           -{product.discount}%
         </span>
         <span className="rounded-full bg-white p-2">
-          {product.favorite ? (
+          {favorite ? (
             <IoHeart className="fill-red-500 text-2xl" />
           ) : (
             <IoHeartOutline className="text-2xl text-black" />
@@ -38,21 +60,28 @@ function ProductCard({
       <CardContent className="flex flex-col items-center justify-center">
         <div className="relative aspect-square h-36 max-h-36">
           <Image
-            src={product.src}
+            src={product.url}
             fill
             alt={`image of ${product.name}`}
             className="object-contain"
           />
         </div>
       </CardContent>
-      <CardFooter className="bg-background-hero justify-between rounded-xl p-3">
+      <CardFooter className="bg-background-hero mt-auto justify-between gap-8 rounded-xl p-3 capitalize">
         <div className="flex flex-col">
           <p>{product.name}</p>
           <p>${product.price}</p>
         </div>
-        <div className="border-card-action rounded-full border-4 p-2">
+
+        <Button
+          onClick={
+            () => handleAddToCart(product)
+            // handleAddToCart({ ...product, quantity: quantity + 1 })
+          }
+          className="border-card-action rounded-full border-4 bg-transparent p-4"
+        >
           <FaShoppingCart className="fill-card-action" />
-        </div>
+        </Button>
       </CardFooter>
     </Card>
   );

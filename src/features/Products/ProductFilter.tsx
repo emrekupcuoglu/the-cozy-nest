@@ -50,9 +50,7 @@ function ProductFilter() {
   const form = useForm<ProductFormProps>({
     defaultValues: { categories: [] },
   });
-  function onSubmit(data: ProductFormProps) {
-    console.log(data);
-  }
+  function onSubmit(data: ProductFormProps) {}
   return (
     <div className="">
       <h2>Filters</h2>
@@ -148,7 +146,6 @@ function ProductFilter() {
                   name="availability"
                   control={form.control}
                   render={({ field }) => {
-                    console.log("field", field);
                     return (
                       <div className="flex flex-col gap-4 p-8 text-black">
                         <FormItem>

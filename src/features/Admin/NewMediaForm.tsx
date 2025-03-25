@@ -46,7 +46,6 @@ function NewMediaForm() {
                     // {...field}
                     {...fileRef}
                     onChange={(e) => {
-                      console.log("field", field);
                       field.onChange(e.target?.files?.[0] ?? undefined);
                     }}
                   />

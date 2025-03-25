@@ -1,4 +1,4 @@
-import { createServerClient } from "./server";
+import { createServerClient, createBrowserClient } from "./server";
 
 export async function getCurrentUserServer() {
   const supabase = await createServerClient();
@@ -33,3 +33,35 @@ export async function getAllMedia() {
 
   return data;
 }
+
+export async function getAllProducts() {
+  const supabase = await createBrowserClient();
+
+  const { data, error } = await supabase.from("Product").select("*");
+
+  if (error) {
+    console.error(error.message);
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+export async function getProductById(id: number) {
+  const supabase = await createBrowserClient();
+
+  const { data, error } = await supabase
+    .from("Product")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+export function getTrendingProducts() {}

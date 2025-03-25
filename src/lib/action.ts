@@ -10,6 +10,10 @@ import { MediaFormSchema } from "./validation/mediaForm";
 
 import sharp from "sharp";
 import { revalidatePath } from "next/cache";
+import {
+  checkoutFormSchema,
+  CheckoutFormSchema,
+} from "./validation/checkoutForm";
 
 export async function login(inputData: LoginFormSchema) {
   const validatedData = loginFormSchema.safeParse(inputData);
@@ -35,8 +39,6 @@ export async function login(inputData: LoginFormSchema) {
     console.error(error.message);
     throw new Error(error.message);
   }
-
-  console.log("data", data);
 
   // if (data?.user?.role !== "authenticated")
   redirect("/admin");
@@ -91,7 +93,6 @@ export async function signup(inputData: SignupFormSchema) {
 export async function createNewImage(inputData: MediaFormSchema) {
   try {
     const supabase = await createBrowserClient();
-    console.log("inputData", inputData);
 
     const imageName = inputData.image[0].name.split(".")[0] + ".webp";
 
@@ -110,12 +111,8 @@ export async function createNewImage(inputData: MediaFormSchema) {
       throw new Error(error.message);
     }
 
-    console.log("data", data);
-
     return data;
   } catch (err) {
-    console.log("------------");
-
     console.error(err);
   }
 
@@ -141,6 +138,33 @@ export async function createProduct() {
     console.error("error", error);
   }
 
-  console.log("dataxxx", data);
   return data;
+}
+
+export async function checkout(inputData: CheckoutFormSchema) {
+  const validatedData = checkoutFormSchema.safeParse(inputData);
+
+  if (!validatedData.success) {
+    const fieldErrors = validatedData.error.flatten().fieldErrors;
+
+    return {
+      error: {
+        name: fieldErrors.name,
+        lastName: fieldErrors.lastName,
+        phone: fieldErrors.phone,
+        email: fieldErrors.email,
+        address: fieldErrors.address,
+        city: fieldErrors.city,
+        country: fieldErrors.country,
+        zipcode: fieldErrors.zipcode,
+        method: fieldErrors.method,
+        cardOwner: fieldErrors.cardOwner,
+        cardNo: fieldErrors.cardNo,
+        expiration: fieldErrors.expiration,
+        ccv: fieldErrors.ccv,
+      },
+    };
+  }
+
+  redirect("/checkout/success");
 }

@@ -34,15 +34,8 @@ function AdminSignupForm() {
   });
 
   const onSubmit: SubmitHandler<SignupFormSchema> = async (data) => {
-    console.log("data", data);
-
     await signup(data);
   };
-
-  // const onSubmit = async (data: FormData) => {
-  //   console.log("data", data);
-  //   await signup(data);
-  // };
 
   return (
     <Form {...form}>

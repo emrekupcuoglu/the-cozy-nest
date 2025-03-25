@@ -10,6 +10,7 @@ import chair from "@/../public/chair-3.png";
 import pillow from "@/../public/pillow-2.png";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useState } from "react";
+import Link from "next/link";
 
 type Product = {
   src: string | StaticImport;
@@ -118,12 +119,15 @@ function TrendingProducts() {
         <h2 className="text-3xl">
           <strong>Trending products for you!</strong>
         </h2>
-        <Button className="bg-card-action">
+        <Link
+          href="/products"
+          className="bg-card-action flex items-center gap-2 rounded-lg px-4 text-white"
+        >
           <span>View All Products</span>
           <span>
             <HiArrowLongRight />
           </span>
-        </Button>
+        </Link>
       </div>
       <div className="flex pb-8">
         {Object.keys(productsByCategory).map((category) => {
@@ -142,11 +146,6 @@ function TrendingProducts() {
             </Button>
           );
         })}
-        {/* <Button variant="link">Bed Room</Button>
-        <Button variant="link">Living Room</Button>
-        <Button variant="link">Dining Room</Button>
-        <Button variant="link">Outdoor</Button>
-        <Button variant="link">Indoor</Button> */}
       </div>
       <TrendingList
         productsByCategory={productsByCategory}

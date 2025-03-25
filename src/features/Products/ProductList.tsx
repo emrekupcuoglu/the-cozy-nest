@@ -6,10 +6,12 @@ import {
   SelectTrigger,
 } from "@/components/ui/select";
 
-import sofa from "@/../public/sofa.png";
 import ProductCard from "@/components/ProductCard";
+import { getAllProducts } from "@/lib/supabase/data-service";
 
-function ProductList() {
+async function ProductList() {
+  const products = await getAllProducts();
+
   return (
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
@@ -29,22 +31,10 @@ function ProductList() {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
-        <ProductCard
-          product={{ name: "test", price: 150, discount: 0, src: sofa }}
-        />
-        <ProductCard
-          product={{ name: "test", price: 150, discount: 0, src: sofa }}
-        />
-        <ProductCard
-          product={{ name: "test", price: 150, discount: 0, src: sofa }}
-        />
-        <ProductCard
-          product={{ name: "test", price: 150, discount: 0, src: sofa }}
-        />
-        <ProductCard
-          product={{ name: "test", price: 150, discount: 0, src: sofa }}
-        />
+      <div className="grid grid-cols-3 gap-4">
+        {products.map((product, index) => {
+          return <ProductCard product={product} key={product.id} />;
+        })}
       </div>
     </div>
   );

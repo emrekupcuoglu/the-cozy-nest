@@ -5,8 +5,6 @@ import Image from "next/image";
 async function MediaPage() {
   const media = await getAllMedia();
 
-  console.log("media", media);
-
   const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/bathroom.webp`;
   return (
     <div className="flex flex-col">
