@@ -17,7 +17,9 @@ function CartPage() {
   useEffect(() => {
     const x = cart
       ? cart?.reduce((acc, product) => {
-          return acc + product.quantity * product.price;
+          return (
+            acc + product.quantity * (product.price - Number(product.discount))
+          );
         }, 0)
       : 0;
     setSubtotal(x);
