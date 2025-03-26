@@ -17,7 +17,7 @@ function CartItem({
   decrementQuantity: (id: number) => void;
 }) {
   const [quantity, setQuantity] = useState(product.quantity);
-  const total = product.price * quantity;
+  const total = (product.price - Number(product.discount)) * quantity;
 
   function handleIncrement() {
     addToCart(product);
@@ -39,11 +39,11 @@ function CartItem({
             {product.url && <Image src={product.url} fill alt="" />}
           </div>
         </div>
-        <p>Wall Clock</p>
+        <p>{product.name}k</p>
       </div>
 
       <div className="w-full">
-        <p className="text-start">$80</p>
+        <p className="text-start">{product.price - Number(product.discount)}</p>
       </div>
       <div className="bg-card-grey flex w-full items-center justify-start gap-3 rounded-full px-3 py-2">
         <Button
