@@ -10,9 +10,12 @@ import FAQ from "@/features/HomePage/faq/FAQ";
 import FlashSale from "@/features/HomePage/flash-sale/FlashSale";
 import NewsletterBanner from "@/features/HomePage/newsletter-banner/NewsletterBanner";
 import Testimonials from "@/features/HomePage/testimonials/Testimonials";
+import { getTrendingProducts } from "@/lib/supabase/data-service";
 
 export const metadata: Metadata = { title: "Cozy Nest | Build your dream" };
-export default function Home() {
+export default async function Home() {
+  const trendingProducts = getTrendingProducts();
+
   return (
     <div className="flex flex-col">
       <Hero />
@@ -20,7 +23,7 @@ export default function Home() {
         <NewCollection />
         <Featured />
         <Suspense fallback={<div>Loading...</div>}>
-          <TrendingProducts />
+          <TrendingProducts productsPromise={trendingProducts} />
         </Suspense>
         <FlashSale />
         <Testimonials />

@@ -122,19 +122,22 @@ export type Database = {
       }
       Trending_Product: {
         Row: {
+          category: string
           created_at: string
           id: number
-          product_id: number | null
+          product_id: number
         }
         Insert: {
+          category: string
           created_at?: string
           id?: number
-          product_id?: number | null
+          product_id: number
         }
         Update: {
+          category?: string
           created_at?: string
           id?: number
-          product_id?: number | null
+          product_id?: number
         }
         Relationships: [
           {

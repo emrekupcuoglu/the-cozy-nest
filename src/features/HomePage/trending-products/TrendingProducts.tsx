@@ -9,109 +9,95 @@ import sofa3 from "@/../public/sofa-3.png";
 import chair from "@/../public/chair-3.png";
 import pillow from "@/../public/pillow-2.png";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
+import { Tables } from "@/lib/supabase/database.types";
+import { TrendingProductsWithProduct } from "@/lib/supabase/data-service";
 
-type Product = {
-  src: string | StaticImport;
-  price: number;
-  name: string;
-  discount: number;
-  category: string;
-  favorite?: boolean;
-};
+// type Product = {
+//   src: string | StaticImport;
+//   price: number;
+//   name: string;
+//   discount: number;
+//   category: string;
+//   favorite?: boolean;
+// };
 
-const products: Product[] = [
-  {
-    src: sofa,
-    price: 250,
-    name: "Regal Sofa",
-    discount: 10,
-    favorite: true,
-    category: "bed room",
-  },
+// const products: Product[] = [
+//   {
+//     src: sofa,
+//     price: 250,
+//     name: "Regal Sofa",
+//     discount: 10,
+//     favorite: true,
+//     category: "bed room",
+//   },
 
-  {
-    src: sofa2,
-    price: 150,
-    name: "Baby Blue Sofa",
-    discount: 20,
-    category: "bed room",
-  },
-  {
-    src: sofa3,
-    price: 350,
-    name: "Teal Sofa",
-    discount: 15,
-    category: "bed room",
-  },
-  {
-    src: chair,
-    price: 450,
-    name: "Leather Chair",
-    discount: 20,
-    favorite: true,
-    category: "bed room",
-  },
-  {
-    src: pillow,
-    price: 10,
-    name: "Comfy Pillow",
-    discount: 40,
-    category: "bed room",
-  },
-  {
-    src: sofa,
-    price: 250,
-    name: "Regal Sofa",
-    discount: 10,
-    favorite: true,
-    category: "living room",
-  },
+//   {
+//     src: sofa2,
+//     price: 150,
+//     name: "Baby Blue Sofa",
+//     discount: 20,
+//     category: "bed room",
+//   },
+//   {
+//     src: sofa3,
+//     price: 350,
+//     name: "Teal Sofa",
+//     discount: 15,
+//     category: "bed room",
+//   },
+//   {
+//     src: chair,
+//     price: 450,
+//     name: "Leather Chair",
+//     discount: 20,
+//     favorite: true,
+//     category: "bed room",
+//   },
+//   {
+//     src: pillow,
+//     price: 10,
+//     name: "Comfy Pillow",
+//     discount: 40,
+//     category: "bed room",
+//   },
+//   {
+//     src: sofa,
+//     price: 250,
+//     name: "Regal Sofa",
+//     discount: 10,
+//     favorite: true,
+//     category: "living room",
+//   },
 
-  {
-    src: sofa2,
-    price: 150,
-    name: "Baby Blue Sofa",
-    discount: 20,
-    category: "living room",
-  },
-  // {
-  //   src: sofa3,
-  //   price: 350,
-  //   name: "Teal Sofa",
-  //   discount: 15,
-  //   category: "living room",
-  // },
-  // {
-  //   src: chair,
-  //   price: 450,
-  //   name: "Leather Chair",
-  //   discount: 20,
-  //   favorite: true,
-  //   category: "living room",
-  // },
-  // {
-  //   src: pillow,
-  //   price: 10,
-  //   name: "Comfy Pillow",
-  //   discount: 40,
-  //   category: "living room",
-  // },
-];
+//   {
+//     src: sofa2,
+//     price: 150,
+//     name: "Baby Blue Sofa",
+//     discount: 20,
+//     category: "living room",
+//   },
+// ];
 
-const productsByCategory: { [key: string]: Product[] } = {};
-
-products.forEach((product) => {
-  if (productsByCategory[product.category]) {
-    productsByCategory[product.category].push(product);
-  } else {
-    productsByCategory[product.category] = [product];
-  }
-});
-
-function TrendingProducts() {
+function TrendingProducts({
+  productsPromise,
+}: {
+  productsPromise: Promise<TrendingProductsWithProduct>;
+}) {
   const [activeTab, setActiveTab] = useState("bed room");
+
+  const products = use(productsPromise);
+
+  const productsByCategory: { [key: string]: Tables<"Product">[] } = {};
+
+  products.forEach((product) => {
+    if (productsByCategory[product.category]) {
+      productsByCategory[product.category].push(product.Product);
+    } else {
+      productsByCategory[product.category] = [product.Product];
+    }
+  });
 
   return (
     <div className="flex flex-col pb-24 pt-16">

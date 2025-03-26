@@ -7,13 +7,12 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
-import { useLocalStorage, useLocalStorageCart } from "@/hooks/useLocalStorage";
+import { useLocalStorageCart } from "@/hooks/useLocalStorage";
 import { Tables } from "@/lib/supabase/database.types";
+import { ProductType } from "@/types";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { Button } from "./ui/button";
-import { CartItemType, ProductType } from "@/types";
-import { useState } from "react";
 
 function ProductCard({
   product,
@@ -59,12 +58,14 @@ function ProductCard({
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center">
         <div className="relative aspect-square h-36 max-h-36">
-          <Image
-            src={product.url}
-            fill
-            alt={`image of ${product.name}`}
-            className="object-contain"
-          />
+          {product.url && (
+            <Image
+              src={product.url}
+              fill
+              alt={`image of ${product.name}`}
+              className="object-contain"
+            />
+          )}
         </div>
       </CardContent>
       <CardFooter className="bg-background-hero mt-auto justify-between gap-8 rounded-xl p-3 capitalize">

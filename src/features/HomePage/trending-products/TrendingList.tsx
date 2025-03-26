@@ -1,22 +1,15 @@
 import ProductCard from "@/components/ProductCard";
+import { Tables } from "@/lib/supabase/database.types";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-
-type Product = {
-  src: string | StaticImport;
-  price: number;
-  name: string;
-  discount: number;
-  category: string;
-  favorite?: boolean;
-};
 
 function TrendingList({
   productsByCategory,
   activeCategory,
 }: {
-  productsByCategory: { [key: string]: Product[] };
+  productsByCategory: { [key: string]: Tables<"Product">[] };
   activeCategory: string;
 }) {
+  console.log("c", productsByCategory);
   return (
     <div className="grid grid-cols-3 justify-items-center gap-y-16">
       {productsByCategory[activeCategory].map((product) => (

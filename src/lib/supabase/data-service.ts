@@ -1,3 +1,5 @@
+import { QueryResult, QueryData, QueryError } from "@supabase/supabase-js";
+
 import { createServerClient, createBrowserClient } from "./server";
 
 export async function getCurrentUserServer() {
@@ -64,4 +66,23 @@ export async function getProductById(id: number) {
   return data;
 }
 
-export function getTrendingProducts() {}
+export async function getTrendingProducts() {
+  const supabase = await createServerClient();
+
+  const query = supabase
+    .from("Trending_Product")
+    .select("category, Product(*)");
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error(error.message);
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+export type TrendingProductsWithProduct = Awaited<
+  ReturnType<typeof getTrendingProducts>
+>;
