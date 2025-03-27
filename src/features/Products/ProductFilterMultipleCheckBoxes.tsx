@@ -12,14 +12,16 @@ import { ProductFormProps } from "./ProductFilter";
 function ProductFilterMultipleCheckBoxes({
   items,
   form,
+  name,
 }: {
   items: { id: string; name: string }[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<ProductFormProps>;
+  name: keyof ProductFormProps;
 }) {
   return (
     <FormField
-      name="categories"
+      name={name}
       control={form.control}
       render={() => {
         return (
@@ -30,7 +32,7 @@ function ProductFilterMultipleCheckBoxes({
                   <FormField
                     key={item.id}
                     control={form.control}
-                    name="categories"
+                    name={name}
                     render={({ field }) => {
                       return (
                         <FormItem key={item.id} className="flex gap-2">

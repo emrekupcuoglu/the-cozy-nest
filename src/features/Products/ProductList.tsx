@@ -8,12 +8,11 @@ import {
 
 import ProductCard from "@/components/ProductCard";
 import { getAllProducts } from "@/lib/supabase/data-service";
+import { Tables } from "@/lib/supabase/database.types";
 
-async function ProductList() {
-  const products = await getAllProducts();
-
+function ProductList({ products }: { products: Tables<"Product">[] }) {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex w-full flex-col gap-8">
       <div className="flex items-center justify-between">
         <h2>Showing Result 1-15 of 400</h2>
         <div className="flex items-center gap-4">
@@ -31,7 +30,7 @@ async function ProductList() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid max-w-full grid-cols-3 place-items-center gap-4 max-lg:grid-cols-2 max-md:gap-y-8 max-sm:grid-cols-1">
         {products.map((product, index) => {
           return <ProductCard product={product} key={product.id} />;
         })}

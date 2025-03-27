@@ -62,15 +62,19 @@ function ProductCard({
             <Image
               src={product.url}
               fill
+              sizes="300px"
               alt={`image of ${product.name}`}
               className="object-contain"
             />
           )}
         </div>
       </CardContent>
-      <CardFooter className="bg-background-hero mt-auto justify-between gap-8 rounded-xl p-3 capitalize">
-        <div className="flex flex-col">
-          <p>{product.name}</p>
+
+      <CardFooter className="bg-background-hero mt-auto w-full justify-between rounded-xl p-3 capitalize">
+        <div className="flex w-3/4 flex-col">
+          <p className="w-4/4 overflow-hidden text-ellipsis text-nowrap">
+            {product.name}
+          </p>
           <p>${product.price}</p>
         </div>
 

@@ -20,6 +20,13 @@
   /* CARD */
   --card-grey: oklch(97.02% 0 0);
   --card-action: oklch(77.21% 0.134 79.38);
+
+  /* OVERLAY */
+
+  --overlay: oklch(48.63% 0.1076 153.91 / 89.51%);
+
+  /* --header: oklch(39.47% 0.0363 206.49 / 82.64%); */
+  --header: oklch(39.47% 0.0363 206.49 / 95%);
 }
 
 :root {
@@ -146,6 +153,12 @@
 
   --color-card-grey: var(--card-grey);
   --color-card-action: var(--card-action);
+
+  /* OVERLAY */
+
+  --color-overlay: var(--overlay);
+
+  --color-header: var(--header);
 }
 
 /* @layer base {

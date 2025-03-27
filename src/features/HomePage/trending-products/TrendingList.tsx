@@ -9,7 +9,6 @@ function TrendingList({
   productsByCategory: { [key: string]: Tables<"Product">[] };
   activeCategory: string;
 }) {
-  console.log("c", productsByCategory);
   return (
     <div className="grid grid-cols-3 justify-items-center gap-y-16">
       {productsByCategory[activeCategory].map((product) => (

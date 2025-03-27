@@ -1,6 +1,4 @@
-import { QueryResult, QueryData, QueryError } from "@supabase/supabase-js";
-
-import { createServerClient, createBrowserClient } from "./server";
+import { createBrowserClient, createServerClient } from "./server";
 
 export async function getCurrentUserServer() {
   const supabase = await createServerClient();

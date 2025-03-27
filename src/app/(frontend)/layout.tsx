@@ -30,7 +30,7 @@ export default function RootLayout({
         <Header />
       </div>
 
-      <main className="">{children}</main>
+      <main className="pt-48">{children}</main>
       <Footer />
     </>
   );

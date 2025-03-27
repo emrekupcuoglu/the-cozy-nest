@@ -9,7 +9,7 @@ function Navlink({
 }) {
   return (
     <Link
-      className="hover:border-action border-b border-transparent"
+      className="hover:border-action w-24 basis-full border-b border-transparent"
       href={href}
     >
       {children}
