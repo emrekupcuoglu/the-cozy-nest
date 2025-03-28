@@ -9,7 +9,7 @@ async function Hero() {
       <div className="bg-background-hero">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-8 py-10">
-            <div className="bg-background-hero flex justify-center gap-8 py-10 text-white">
+            <div className="bg-background-hero flex items-center justify-center gap-8 py-10 text-white max-lg:flex-col max-lg:justify-center max-lg:px-12">
               <HeroText className="basis-1/2" />
               <HeroGallery className="basis-1/2" />
             </div>

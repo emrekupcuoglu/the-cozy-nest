@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <div className="mx-auto flex max-w-7xl flex-col">
+      {/* <div className="mx-auto flex max-w-7xl flex-col">
         <NewCollection />
         <Featured />
         <Suspense fallback={<div>Loading...</div>}>
@@ -30,7 +30,7 @@ export default async function Home() {
         <BlogShowcase />
         <FAQ />
         <NewsletterBanner />
-      </div>
+      </div> */}
     </div>
   );
 }

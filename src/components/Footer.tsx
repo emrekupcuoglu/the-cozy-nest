@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div>
+    <div className="">
       <div className="mx-auto max-w-7xl py-8">
         <div className="flex justify-center">
           <div className="relative aspect-square h-44">
@@ -20,7 +20,7 @@ function Footer() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 justify-items-center">
           <div>
             <h3 className="pb-4 font-bold">About</h3>
             <ul className="flex flex-col gap-1">
@@ -79,9 +79,9 @@ function Footer() {
         </div>
       </div>
 
-      <div className="bg-background-hero flex items-center justify-around py-12 text-white">
-        <h3 className="capitalize">
-          Copyrights The Cozy Nest 2025. All Rights Reserved.
+      <div className="bg-background-hero flex items-center justify-around py-12 text-white max-sm:flex-col max-sm:gap-4">
+        <h3 className="capitalize max-sm:flex max-sm:flex-col max-sm:items-center">
+          Copyrights The Cozy Nest 2025. <span> All Rights Reserved.</span>
         </h3>
         <div className="flex items-center gap-2">
           <Link href="" className="bg-background-light rounded-full p-2">

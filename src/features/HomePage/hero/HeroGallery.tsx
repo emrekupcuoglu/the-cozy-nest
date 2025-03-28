@@ -27,7 +27,7 @@ function HeroGallery({ className }: { className?: string }) {
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <div className="flex gap-2">
+      <div className="flex gap-2 max-sm:flex-col">
         <HeroImage
           quantity={800}
           category="Bed Room"
@@ -51,7 +51,7 @@ function HeroGallery({ className }: { className?: string }) {
         />
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-6 max-md:justify-center">
         <Button
           onClick={handlePrev}
           className={`${selected !== 0 ? "bg-action hover:bg-card-action" : "bg-background-light"} w-20 rounded-full px-4 py-2`}

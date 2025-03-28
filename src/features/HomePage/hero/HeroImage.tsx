@@ -16,9 +16,8 @@ function HeroImage({
 }) {
   return (
     <div
-      // onClick={onClick}
       onMouseEnter={onClick}
-      className={`relative h-96 w-24 cursor-pointer rounded-xl transition-all duration-700 ${isActive ? "w-96" : "w-24"}`}
+      className={`relative h-96 w-24 cursor-pointer rounded-xl transition-all duration-700 max-xl:h-72 max-xl:w-20 max-lg:w-32 max-md:w-20 max-sm:h-20 max-sm:w-screen max-sm:max-w-96 ${isActive ? "w-96 max-xl:w-72 max-lg:w-[30rem] max-md:w-72 max-sm:h-96" : ""}`}
     >
       <Image
         priority
@@ -31,7 +30,7 @@ function HeroImage({
       />
 
       {isActive && (
-        <div className="absolute inset-0 z-50 bg-gradient-to-b from-transparent to-stone-700">
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-stone-700">
           <span className="absolute bottom-3 left-3">
             <strong>{category}</strong>
           </span>
@@ -39,8 +38,8 @@ function HeroImage({
         </div>
       )}
       {!isActive && (
-        <div className="absolute inset-0 z-50 bg-gradient-to-b from-transparent to-stone-700">
-          <span className="rotate-270 absolute bottom-3 left-3 w-44 origin-top-left text-start">
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-stone-700">
+          <span className="rotate-270 absolute bottom-3 left-3 w-44 origin-top-left text-start max-sm:rotate-0">
             <strong>{category}</strong>
           </span>
         </div>
