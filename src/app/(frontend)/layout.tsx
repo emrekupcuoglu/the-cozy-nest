@@ -26,11 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <div className="bg-background-hero">
-        <Header />
-      </div>
+      <Header />
 
-      <main className="pt-48">{children}</main>
+      <main className="">{children}</main>
       <Footer />
     </>
   );
