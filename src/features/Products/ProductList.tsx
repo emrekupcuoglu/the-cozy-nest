@@ -27,7 +27,9 @@ function ProductList({ products }: { products: Tables<"Product">[] }) {
               <SelectValue placeholder="Relevant" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="relevant">Relevant</SelectItem>
+              <SelectItem value="relevant" defaultChecked>
+                Relevant
+              </SelectItem>
               <SelectItem value="high-to-low">Price high to low</SelectItem>
               <SelectItem value="low-to-high">Price low to high</SelectItem>
             </SelectContent>
