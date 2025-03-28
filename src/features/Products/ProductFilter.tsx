@@ -67,7 +67,7 @@ export type ProductFormProps = {
   materials: string[];
 };
 
-function ProductFilter({ products }: { products: Tables<"Product">[] }) {
+function ProductFilter() {
   const form = useForm<ProductFormProps>({
     defaultValues: { categories: [], materials: [], colors: [] },
   });

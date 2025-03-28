@@ -5,11 +5,13 @@ export async function getProductsByFilterClient({
   material,
   priceLow,
   priceHigh,
+  sort,
 }: {
   color: string;
   material: string;
   priceLow: string;
   priceHigh: string;
+  sort: string;
 }) {
   let query = supabaseClientAnon.from("Product").select("*");
 
@@ -20,6 +22,15 @@ export async function getProductsByFilterClient({
   if (priceLow && priceLow !== "undefined") query.gte("price", priceLow);
 
   if (priceHigh && priceHigh !== "undefined") query.lte("price", priceHigh);
+
+  if (sort && sort !== "undefined") {
+    if (sort === "high-to-low") {
+      query.order("price", { ascending: false });
+    }
+    if (sort === "low-to-high") {
+      query.order("price", { ascending: true });
+    }
+  }
 
   const { data, error } = await query;
 

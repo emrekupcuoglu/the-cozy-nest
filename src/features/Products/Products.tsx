@@ -13,6 +13,7 @@ function Products({ products }: { products: Tables<"Product">[] }) {
   const material = searchParams.get("material")!;
   const priceLow = searchParams.get("low")!;
   const priceHigh = searchParams.get("high")!;
+  const sort = searchParams.get("sort")!;
 
   const [filteredProducts, setFilteredProducts] = useState(products);
 
@@ -23,17 +24,18 @@ function Products({ products }: { products: Tables<"Product">[] }) {
         material,
         priceLow,
         priceHigh,
+        sort,
       });
 
       setFilteredProducts(products);
     }
 
     getProducts();
-  }, [color, material, priceLow, priceHigh]);
+  }, [color, material, priceLow, priceHigh, sort]);
 
   return (
     <>
-      <ProductFilter products={filteredProducts} />
+      <ProductFilter />
       <ProductList products={filteredProducts} />
     </>
   );
