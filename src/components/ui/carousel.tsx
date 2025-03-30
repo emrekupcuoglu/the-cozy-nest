@@ -89,11 +89,12 @@ function Carousel({
   );
 
   const onSelect = React.useCallback(() => {
-    if (!api || !apiThumb) return;
+    // if (!api ||  !apiThumb) return;
+    if (!api) return;
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
     setSelectedIndex(api.selectedScrollSnap());
-    apiThumb.scrollTo(api.selectedScrollSnap());
+    apiThumb?.scrollTo(api.selectedScrollSnap());
   }, [api, apiThumb]);
 
   const scrollPrev = React.useCallback(() => {
@@ -130,7 +131,10 @@ function Carousel({
   }, [api, setApi]);
 
   React.useEffect(() => {
-    if (!api || !apiThumb) return;
+    console.log("api", api);
+    console.log("apiThumb", apiThumb);
+    // if (!api || !apiThumb) return;
+    if (!api) return;
     onInit(api);
 
     onSelect();
@@ -354,6 +358,9 @@ function CarouselDotButton({
 }: React.ComponentProps<typeof Button>) {
   const { orientation, onThumbButtonClick, selectedIndex, scrollSnaps } =
     useCarousel();
+
+  console.log("selectedIndex", selectedIndex);
+  console.log("scrollSnaps", scrollSnaps);
 
   return (
     <>
