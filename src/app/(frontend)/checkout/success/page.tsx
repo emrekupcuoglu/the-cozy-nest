@@ -3,7 +3,7 @@ import { CheckIcon } from "lucide-react";
 function CheckoutSuccessPage() {
   return (
     <div className="flex flex-col pt-12">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl max-lg:px-16">
         <div className="flex justify-center">
           <CheckIcon className="border-background-hero stroke-card-action size-32 rounded-full border-8 p-4" />
         </div>

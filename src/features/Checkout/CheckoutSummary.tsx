@@ -17,7 +17,8 @@ function CheckoutSummary({
   return (
     <Card className={cn("bg-card-grey rounded-2xl border-none p-0", className)}>
       <CardHeader className="bg-background-hero rounded-t-2xl p-4">
-        <div className="grid grid-cols-[3fr_1fr_1fr_1fr] gap-x-8 text-lg text-white">
+        <div className="text-lg text-white">
+          {/* <div className="grid grid-cols-[3fr_1fr_1fr_1fr] gap-x-8 text-lg text-white"> */}
           <p className="justify-self-start">Order Summary</p>
         </div>
       </CardHeader>
