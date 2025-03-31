@@ -2,13 +2,9 @@ import { CartItemType, CartType, ProductType } from "@/types";
 import { useEffect, useState } from "react";
 
 export function useLocalStorage<T>() {
-  const [localStorageData, setLocalStorageData] = useState<T | null>(null);
   function getItem(key: string) {
-    useEffect(() => {
-      const data = localStorage.getItem(key);
-      data ? setLocalStorageData(JSON.parse(data)) : setLocalStorageData(null);
-    }, []);
-    return localStorageData;
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
   }
 
   function setItem(key: string, value: CartItemType) {
