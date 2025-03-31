@@ -11,12 +11,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { createNewImage } from "@/lib/action";
 
-import { mediaFormSchema } from "@/lib/validation/mediaForm";
+import { MediaFormSchema, mediaFormSchema } from "@/lib/validation/mediaForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-const onSubmit = async (data: any) => {
-  const a = await createNewImage(data);
+const onSubmit: SubmitHandler<MediaFormSchema> = async (data) => {
+  await createNewImage(data);
 };
 
 function NewMediaForm() {

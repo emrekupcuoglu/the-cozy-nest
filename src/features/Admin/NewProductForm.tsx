@@ -23,7 +23,7 @@ function NewProductForm() {
     defaultValues: { name: "", price: 0, description: "", image: "" },
   });
 
-  const onSubmit: SubmitHandler<ProductFormSchema> = async (data) => {};
+  const onSubmit: SubmitHandler<ProductFormSchema> = async () => {};
 
   return (
     <Form {...form}>

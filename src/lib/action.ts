@@ -129,7 +129,7 @@ export async function createProduct() {
 
   const { data, error } = await supabase.from("Product").insert({
     price: 100,
-
+    name: "test",
     category: "test",
     color: "test",
     material: "test",

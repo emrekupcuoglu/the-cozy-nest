@@ -19,9 +19,6 @@ import { useForm } from "react-hook-form";
 import ProductFilterMultipleCheckBoxes from "./ProductFilterMultipleCheckBoxes";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Slider } from "@/components/ui/slider";
-import { Tables } from "@/lib/supabase/database.types";
-import { useLayoutEffect, useState } from "react";
 import {
   Sheet,
   SheetClose,
@@ -30,6 +27,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
+import { useLayoutEffect, useState } from "react";
 
 const categories = [
   { id: "living-room", name: "Living Room" },

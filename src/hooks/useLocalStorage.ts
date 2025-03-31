@@ -1,39 +1,6 @@
 import { CartItemType, CartType, ProductType } from "@/types";
 import { useEffect, useState } from "react";
 
-export function useLocalStorage<T>() {
-  function getItem(key: string) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-  }
-
-  function setItem(key: string, value: CartItemType) {
-    const existingCart = localStorage.getItem(key);
-    let cart = existingCart ? JSON.parse(existingCart) : [];
-
-    const existingItem = cart.find((cartItem: any) => cartItem.id === value.id);
-
-    if (existingItem) {
-      cart = cart
-        .map((cartItem: any) => {
-          if (cartItem.id === value.id) {
-            return { ...cartItem, quantity: value.quantity };
-          } else {
-            return cartItem;
-          }
-        })
-        .filter((cartItem: any) => cartItem.quantity > 0);
-
-      localStorage.setItem(key, JSON.stringify(cart));
-    } else {
-      cart.push(value);
-      localStorage.setItem(key, JSON.stringify(cart));
-    }
-  }
-
-  return { getItem, setItem };
-}
-
 export function useLocalStorageCart() {
   const [cart, setCart] = useState<CartType | null>(null);
 
@@ -45,22 +12,22 @@ export function useLocalStorageCart() {
 
   function addToCart(product: ProductType) {
     const existingCart = localStorage.getItem("cart");
-    let cart = existingCart ? JSON.parse(existingCart) : [];
+    let cart = existingCart ? JSON.parse(existingCart) : ([] as CartType);
 
     const existingItem = cart.find(
-      (cartItem: any) => cartItem.id === product.id,
+      (cartItem: CartItemType) => cartItem.id === product.id,
     );
 
     if (existingItem) {
       cart = cart
-        .map((cartItem: any) => {
+        .map((cartItem: CartItemType) => {
           if (cartItem.id === product.id) {
             return { ...cartItem, quantity: cartItem.quantity + 1 };
           } else {
             return cartItem;
           }
         })
-        .filter((cartItem: any) => cartItem.quantity > 0);
+        .filter((cartItem: CartItemType) => cartItem.quantity > 0);
 
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
@@ -75,18 +42,20 @@ export function useLocalStorageCart() {
     const existingCart = localStorage.getItem("cart");
     let cart = existingCart ? JSON.parse(existingCart) : [];
 
-    const existingItem = cart.find((cartItem: any) => cartItem.id === id);
+    const existingItem = cart.find(
+      (cartItem: CartItemType) => cartItem.id === id,
+    );
 
     if (existingItem) {
       cart = cart
-        .map((cartItem: any) => {
+        .map((cartItem: CartItemType) => {
           if (cartItem.id === id) {
             return { ...cartItem, quantity: cartItem.quantity - 1 };
           } else {
             return cartItem;
           }
         })
-        .filter((cartItem: any) => cartItem.quantity > 0);
+        .filter((cartItem: CartItemType) => cartItem.quantity > 0);
 
       localStorage.setItem("cart", JSON.stringify(cart));
     }

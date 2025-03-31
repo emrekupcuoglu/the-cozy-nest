@@ -1,6 +1,5 @@
 import { SHIPPING } from "@/constants";
 import { clsx, type ClassValue } from "clsx";
-import { FaNapster } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {

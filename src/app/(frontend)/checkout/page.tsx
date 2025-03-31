@@ -1,10 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import CheckoutForm from "@/features/Checkout/CheckoutForm";
-import CheckoutSummary from "@/features/Checkout/CheckoutSummary";
-import { useLocalStorageCart } from "@/hooks/useLocalStorage";
-import { calculateShipping } from "@/lib/utils";
 
 function CheckoutPage() {
   return (

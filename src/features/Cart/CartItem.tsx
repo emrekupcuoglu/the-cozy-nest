@@ -3,9 +3,8 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 
-import { useLocalStorageCart } from "@/hooks/useLocalStorage";
-import { useState } from "react";
 import { CartItemType, ProductType } from "@/types";
+import { useState } from "react";
 
 function CartItem({
   product,

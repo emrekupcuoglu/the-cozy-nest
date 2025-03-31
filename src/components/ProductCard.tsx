@@ -21,26 +21,11 @@ function ProductCard({
   product: Tables<"Product">;
   favorite?: boolean;
 }) {
-  const { addToCart, cart, decrementQuantity } = useLocalStorageCart();
-
-  // const { getItem, setItem } = useLocalStorage();
-
-  // const itemQuantity =
-  //   getItem("cart")?.find((cartItem: any) => cartItem.id === product.id)
-  //     ?.quantity || 0;
-
-  // const [quantity, setQuantity] = useState(itemQuantity);
-  // productQuantityRef.current =
-  //   getItem("cart")?.find((cartItem: any) => cartItem.id === product.id)
-  //     ?.quantity || 0;
+  const { addToCart } = useLocalStorageCart();
 
   function handleAddToCart(product: ProductType) {
     addToCart(product);
   }
-  // function handleAddToCart(product: CartItemType) {
-  //   setQuantity((prev) => prev + 1);
-  //   setItem("cart", { ...product, quantity: product.quantity + 1 });
-  // }
 
   return (
     <Card className="bg-card-grey w-full max-w-96 rounded-2xl border-none pb-0 text-white">
@@ -79,10 +64,7 @@ function ProductCard({
         </div>
 
         <Button
-          onClick={
-            () => handleAddToCart(product)
-            // handleAddToCart({ ...product, quantity: quantity + 1 })
-          }
+          onClick={() => handleAddToCart(product)}
           className="border-card-action rounded-full border-4 bg-transparent p-4"
         >
           <FaShoppingCart className="fill-card-action" />

@@ -13,7 +13,7 @@ export async function getProductsByFilterClient({
   priceHigh: string;
   sort: string;
 }) {
-  let query = supabaseClientAnon.from("Product").select("*");
+  const query = supabaseClientAnon.from("Product").select("*");
 
   if (color && color !== "undefined") query.eq("color", color);
 

@@ -38,7 +38,7 @@ function ProductList({ products }: { products: Tables<"Product">[] }) {
       </div>
 
       <div className="grid max-w-full grid-cols-3 place-items-center gap-4 max-lg:grid-cols-2 max-md:gap-y-8 max-sm:grid-cols-1">
-        {products.map((product, index) => {
+        {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
       </div>

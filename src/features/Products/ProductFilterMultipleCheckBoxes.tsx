@@ -17,7 +17,7 @@ function ProductFilterMultipleCheckBoxes({
   items: { id: string; name: string }[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<ProductFormProps>;
-  name: keyof ProductFormProps;
+  name: "categories" | "colors" | "materials";
 }) {
   return (
     <FormField
@@ -38,7 +38,7 @@ function ProductFilterMultipleCheckBoxes({
                         <FormItem key={item.id} className="flex gap-2">
                           <FormControl>
                             <Checkbox
-                              checked={field.value?.includes(item.id)}
+                              checked={field.value.includes(item.id)}
                               onCheckedChange={(checked) => {
                                 return checked
                                   ? field.onChange([...field.value, item.id])

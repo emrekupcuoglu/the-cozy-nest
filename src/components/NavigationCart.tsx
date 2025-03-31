@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BsCart } from "react-icons/bs";
-import { Button } from "./ui/button";
 
 function NavigationCart({ className }: { className?: string }) {
   return (
