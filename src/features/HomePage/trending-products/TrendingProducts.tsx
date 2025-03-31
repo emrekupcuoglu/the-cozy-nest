@@ -3,16 +3,10 @@ import { Button } from "@/components/ui/button";
 import { HiArrowLongRight } from "react-icons/hi2";
 import TrendingList from "./TrendingList";
 
-import sofa from "@/../public/sofa.png";
-import sofa2 from "@/../public/sofa-2.png";
-import sofa3 from "@/../public/sofa-3.png";
-import chair from "@/../public/chair-3.png";
-import pillow from "@/../public/pillow-2.png";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { use, useState } from "react";
-import Link from "next/link";
-import { Tables } from "@/lib/supabase/database.types";
 import { TrendingProductsWithProduct } from "@/lib/supabase/data-service";
+import { Tables } from "@/lib/supabase/database.types";
+import Link from "next/link";
+import { use, useState } from "react";
 
 // type Product = {
 //   src: string | StaticImport;
@@ -101,21 +95,28 @@ function TrendingProducts({
 
   return (
     <div className="flex flex-col pb-24 pt-16">
-      <div className="flex justify-between pb-4">
-        <h2 className="text-3xl">
+      <div className="flex justify-between pb-4 max-sm:flex-col max-sm:gap-4 max-sm:pb-6">
+        <h2 className="text-3xl max-md:text-xl">
           <strong>Trending products for you!</strong>
         </h2>
-        <Link
+        {/* <Link
           href="/products"
           className="bg-card-action flex items-center gap-2 rounded-lg px-4 text-white"
+        > */}
+        <Button
+          className="bg-card-action flex w-fit items-center gap-2 rounded-lg px-4 text-white"
+          asChild
         >
-          <span>View All Products</span>
-          <span>
-            <HiArrowLongRight />
-          </span>
-        </Link>
+          <Link href="/products">
+            View All Products
+            <span>
+              <HiArrowLongRight />
+            </span>
+          </Link>
+        </Button>
+        {/* </Link> */}
       </div>
-      <div className="flex pb-8">
+      <div className="flex pb-8 max-sm:pb-2">
         {Object.keys(productsByCategory).map((category) => {
           return (
             <Button

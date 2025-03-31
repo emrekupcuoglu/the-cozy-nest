@@ -6,8 +6,8 @@ import lampImg from "@/../public/lamp.png";
 
 function NewCollection() {
   return (
-    <div className="grid grid-cols-7 gap-8">
-      <CollectionCard gridStyle="col-span-4">
+    <div className="grid grid-cols-7 gap-8 max-md:grid-cols-1">
+      <CollectionCard gridStyle="col-span-4 max-md:col-span-1">
         <div className="flex items-center justify-around">
           <div className="">
             <span className="rounded-full bg-white px-3 py-2 font-bold uppercase">
@@ -23,7 +23,7 @@ function NewCollection() {
           </div>
           <div>
             <Image
-              className="max-h-40 max-w-44 object-contain object-top"
+              className="max-h-40 max-w-44 object-contain object-top max-md:h-24 max-md:w-24"
               src={tableImg}
               alt="Round table"
               sizes="(max-width: 768px) 100px, (max-width: 1200px) 150px, 200px"
@@ -31,8 +31,8 @@ function NewCollection() {
           </div>
         </div>
       </CollectionCard>
-      <CollectionCard gridStyle="col-span-3 col-start-5 row-span-2">
-        <div className="flex flex-col">
+      <CollectionCard gridStyle="col-span-3 col-start-5 row-span-2 max-md:col-span-1 max-md:row-span-1">
+        <div className="flex flex-col items-center justify-around max-md:flex-row">
           <div className="">
             <span className="rounded-full bg-white px-3 py-2 font-bold uppercase">
               NEW COLLECTION
@@ -47,7 +47,7 @@ function NewCollection() {
           </div>
           <div className="pl-8">
             <Image
-              className="max-h-40 max-w-44 object-contain object-top"
+              className="max-h-40 max-w-44 object-contain object-top max-md:h-24 max-md:w-24"
               src={chairImg}
               alt="Round table"
               sizes="(max-width: 768px) 100px, (max-width: 1200px) 150px, 200px"
@@ -55,7 +55,7 @@ function NewCollection() {
           </div>
         </div>
       </CollectionCard>
-      <CollectionCard gridStyle="col-span-2 h-full">
+      <CollectionCard gridStyle="col-span-2 h-full max-md:col-span-1">
         <div className="flex h-full items-center">
           <div className="grow">
             <span className="rounded-full bg-white px-3 py-2 text-xs font-bold uppercase">
@@ -70,7 +70,7 @@ function NewCollection() {
           </div>
           <div className="">
             <Image
-              className="max-h-24 max-w-24 object-contain"
+              className="max-h-24 max-w-24 object-contain max-md:h-24 max-md:w-24"
               src={lampImg}
               alt="Round table"
               sizes="(max-width: 768px) 100px, (max-width: 1200px) 150px, 200px"
@@ -80,7 +80,7 @@ function NewCollection() {
       </CollectionCard>
       <CollectionCard
         className="bg-background-hero items-center justify-center"
-        gridStyle="col-span-2 h-full"
+        gridStyle="col-span-2 h-full max-md:col-span-1"
       >
         <div className="flex h-full flex-col items-center justify-center text-white">
           <span className="bg-card-action rounded-full px-3 py-2 text-center">

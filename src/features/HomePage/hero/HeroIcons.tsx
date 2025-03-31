@@ -6,7 +6,7 @@ import HeroIcon from "./HeroIcon";
 
 function HeroIcons() {
   return (
-    <div className="flex justify-between pt-6 max-xl:pl-24 max-lg:pl-16 max-md:pl-8 max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:gap-8 max-sm:pl-4 max-sm:text-sm">
+    <div className="flex justify-between pb-16 pt-6 max-xl:pl-24 max-lg:pl-16 max-md:pl-8 max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:gap-8 max-sm:pl-4 max-sm:text-sm">
       <HeroIcon
         icon={<LiaShippingFastSolid />}
         iconText="Fast & Free Shipping"

@@ -9,7 +9,7 @@ function EndtimeWidget() {
         </span>
         <span>Ends in </span>
       </div>
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2 max-xl:text-sm">
         <span className="rounded-sm bg-white p-2">1&nbsp;D</span>
         <span className="rounded-sm bg-white p-2">12&nbsp;H</span>
         <span className="rounded-sm bg-white p-2">34&nbsp;M</span>
