@@ -129,7 +129,7 @@ function FlashSale() {
         </Card>
         <Card className="bg-card-grey w-3/4 justify-self-start rounded-2xl border-none p-0 max-md:justify-self-center">
           <CardContent className="p-0">
-            <div className="w-full rounded-2xl px-8 py-12 max-lg:bg-blue-500 max-lg:py-6">
+            <div className="w-full rounded-2xl px-8 py-12 max-lg:py-6">
               <div className="flex flex-col">
                 <h3 className="pb-4">Regular Offer</h3>
                 <p className="pb-4 text-4xl font-semibold max-lg:text-2xl">
