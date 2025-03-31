@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 import CartItem from "@/features/Cart/CartItem";
@@ -35,8 +36,9 @@ function CartPage() {
   const total = subtotal ? subtotal + shipping : 0;
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col">
-      <div className="grid gap-x-24 pt-8 xl:grid-cols-[2fr_1fr]">
+    <div className="mx-auto flex max-w-7xl flex-col px-8">
+      <div className="grid gap-24 pt-8">
+        {/* <div className="grid grid-cols-2 pt-8 max-xl:grid-cols-2"> */}
         <Card className="bg-card-grey rounded-2xl border-none p-0">
           <CardHeader className="bg-background-hero rounded-t-2xl">
             <div className="grid grid-cols-[3fr_1fr_1fr_1fr] gap-x-24 p-4 text-lg text-white">
@@ -67,12 +69,12 @@ function CartPage() {
           subtotal={subtotal || 0}
           total={total}
         >
-          <Link
-            href="/checkout"
-            className="bg-card-action rounded-full py-3 text-center text-xl text-white"
+          <Button
+            asChild
+            className="bg-card-action hover:bg-action mx-auto rounded-full px-20 py-3 text-center text-xl text-white"
           >
-            Proceed to checkout
-          </Link>
+            <Link href="/checkout">Proceed to checkout</Link>
+          </Button>
         </CheckoutSummary>
       </div>
     </div>
