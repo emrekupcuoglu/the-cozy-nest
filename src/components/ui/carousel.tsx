@@ -131,8 +131,6 @@ function Carousel({
   }, [api, setApi]);
 
   React.useEffect(() => {
-    console.log("api", api);
-    console.log("apiThumb", apiThumb);
     // if (!api || !apiThumb) return;
     if (!api) return;
     onInit(api);
@@ -358,9 +356,6 @@ function CarouselDotButton({
 }: React.ComponentProps<typeof Button>) {
   const { orientation, onThumbButtonClick, selectedIndex, scrollSnaps } =
     useCarousel();
-
-  console.log("selectedIndex", selectedIndex);
-  console.log("scrollSnaps", scrollSnaps);
 
   return (
     <>
