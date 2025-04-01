@@ -32,22 +32,22 @@ function Navigation({ className }: { className?: string }) {
             "z-50 flex gap-16 p-4 max-lg:gap-8 max-md:flex-col max-md:text-base",
           )}
         >
-          <li className="">
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/">Home</Navlink>
           </li>
-          <li>
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/products">Products</Navlink>
           </li>
-          <li>
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/">Categories</Navlink>
           </li>
-          <li>
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/">About Us</Navlink>
           </li>
-          <li>
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/">Contact Us</Navlink>
           </li>
-          <li>
+          <li onClick={() => setIsMobileNavOpen(false)}>
             <Navlink href="/">Blog</Navlink>
           </li>
         </ul>
