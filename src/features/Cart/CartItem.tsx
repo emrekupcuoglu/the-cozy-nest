@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import { CartItemType, ProductType } from "@/types";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 function CartItem({
   product,
@@ -28,45 +29,120 @@ function CartItem({
     setQuantity((prev) => prev - 1);
   }
 
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = Number(e.target.value);
+    if (value < 1) return;
+    setQuantity(value);
+  }
+
   if (quantity < 1) return null;
 
   return (
-    <div className="grid grid-cols-[3fr_1fr_1fr_1fr] place-items-center gap-x-8 text-lg">
-      <div className="flex w-full items-center gap-2 justify-self-start">
-        <div className="flex rounded-md bg-white p-2">
-          <div className="relative aspect-square h-8">
+    <div className="flex items-center justify-between bg-white py-8 pl-4">
+      <div className="flex items-center justify-between gap-16 max-md:flex-col max-md:justify-center max-md:gap-0">
+        <div className="flex items-center gap-4">
+          <div className="relative aspect-square h-24 border max-md:h-16">
             {product.url && <Image src={product.url} fill alt="" />}
           </div>
+
+          <div className="flex items-center justify-center gap-56 max-lg:gap-20 max-md:flex-col max-md:justify-center max-md:gap-0">
+            <div>
+              <p className="text-sm">{product.name}</p>
+              <p className="text-xs">Estimated shipping: In 3 days </p>
+            </div>
+
+            <div className="flex w-fit items-center justify-center gap-3 rounded-full px-3 py-2 max-md:self-start max-md:px-0">
+              <Button
+                onClick={() => handleDecrement()}
+                className="hover:bg-card-action bg-card-grey rounded-full border text-center text-black max-md:h-5 max-md:w-5 max-md:p-1 max-md:text-xs"
+                size="sm"
+              >
+                -
+              </Button>
+              <Input
+                onChange={onChange}
+                value={quantity}
+                className="w-12 text-center text-black max-md:w-10 max-md:text-xs"
+              ></Input>
+              <Button
+                onClick={() => handleIncrement()}
+                className="hover:bg-card-action bg-card-grey rounded-full border text-black max-md:h-5 max-md:w-5 max-md:p-1 max-md:text-xs"
+                size="sm"
+              >
+                +
+              </Button>
+            </div>
+          </div>
         </div>
-        <p>{product.name}k</p>
+
+        {/* <div className="flex w-fit items-center justify-center gap-3 rounded-full px-3 py-2">
+          <Button
+            onClick={() => handleDecrement()}
+            className="hover:bg-card-action bg-card-grey rounded-full border text-black"
+            size="sm"
+          >
+            -
+          </Button>
+          <Input
+            onChange={onChange}
+            value={quantity}
+            className="w-12 text-center text-black max-md:w-10 max-md:text-xs"
+          >
+
+          </Input>
+          <Button
+            onClick={() => handleIncrement()}
+            className="hover:bg-card-action bg-card-grey rounded-full border text-black"
+            size="sm"
+          >
+            +
+          </Button>
+        </div> */}
       </div>
 
-      <div className="w-full">
-        <p className="text-start">{product.price - Number(product.discount)}</p>
-      </div>
-      <div className="bg-card-grey flex w-full items-center justify-start gap-3 rounded-full px-3 py-2">
-        <Button
-          onClick={() => handleDecrement()}
-          className="hover:bg-card-action rounded-full bg-white text-black"
-          size="sm"
-        >
-          -
-        </Button>
-        <span className="w-12 text-center">{quantity}</span>
-        <Button
-          onClick={() => handleIncrement()}
-          className="hover:bg-card-action rounded-full bg-white text-black"
-          size="sm"
-        >
-          +
-        </Button>
-      </div>
-
-      <div>
+      <div className="self-end pr-2">
         <p>${total}</p>
       </div>
     </div>
   );
+
+  // return (
+  //   <div className="grid grid-cols-[3fr_1fr_1fr] place-items-center gap-x-8 text-lg max-md:text-sm">
+  //     <div className="flex w-full items-center gap-2 justify-self-start">
+  //       <div className="flex rounded-md bg-white p-2">
+  //         <div className="relative aspect-square h-8">
+  //           {product.url && <Image src={product.url} fill alt="" />}
+  //         </div>
+  //       </div>
+  //       <p className="text-ellipsis text-nowrap">{product.name}k</p>
+  //     </div>
+
+  //     {/* <div className="w-full">
+  //       <p className="text-start">{product.price - Number(product.discount)}</p>
+  //     </div> */}
+  // <div className="bg-card-grey flex w-full items-center justify-start gap-3 rounded-full px-3 py-2">
+  //   <Button
+  //     onClick={() => handleDecrement()}
+  //     className="hover:bg-card-action rounded-full bg-white text-black"
+  //     size="sm"
+  //   >
+  //     -
+  //   </Button>
+  //   <span className="w-12 text-center">{quantity}</span>
+  //   <Button
+  //     onClick={() => handleIncrement()}
+  //     className="hover:bg-card-action rounded-full bg-white text-black"
+  //     size="sm"
+  //   >
+  //     +
+  //   </Button>
+  // </div>
+
+  //     <div>
+  //       <p>${total}</p>
+  //     </div>
+  //   </div>
+  // );
 }
 
 export default CartItem;

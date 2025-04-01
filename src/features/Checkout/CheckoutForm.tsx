@@ -205,7 +205,7 @@ function CheckoutForm() {
             total={total}
             className="h-fit max-md:row-start-1"
           >
-            <div className="flex justify-around gap-2 max-md:flex-col">
+            <div className="flex justify-around gap-2 max-md:pr-8 max-sm:flex-col">
               <Button type="submit" className="bg-card-action hover:bg-action">
                 Confirm Payment
               </Button>

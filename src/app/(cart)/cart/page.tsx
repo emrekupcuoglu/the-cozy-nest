@@ -36,18 +36,19 @@ function CartPage() {
   const total = subtotal ? subtotal + shipping : 0;
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col px-8">
-      <div className="grid gap-24 pt-8">
-        {/* <div className="grid grid-cols-2 pt-8 max-xl:grid-cols-2"> */}
-        <Card className="bg-card-grey rounded-2xl border-none p-0">
-          <CardHeader className="bg-background-hero rounded-t-2xl">
-            <div className="grid grid-cols-[3fr_1fr_1fr_1fr] gap-x-24 p-4 text-lg text-white">
+    <div className="mx-auto flex w-full flex-col pt-16">
+      {/* <div className="grid gap-24 pt-8"> */}
+      {/* <div className="grid grid-cols-2 pt-8 max-xl:grid-cols-2"> */}
+      <div className="flex gap-4 max-md:flex-col">
+        <Card className="bg-card-grey basis-full rounded-2xl border-none p-0">
+          {/* <CardHeader className="bg-background-hero rounded-t-2xl">
+            <div className="grid grid-cols-[3fr_1fr_1fr] gap-x-24 p-4 text-lg text-white">
               <p className="justify-self-start">Product</p>
-              <p>Price</p>
+
               <p>Quantity</p>
               <p className="justify-self-end">Total</p>
             </div>
-          </CardHeader>
+          </CardHeader> */}
           <CardContent className="bg-card-grey rounded-b-2xl p-4">
             <div className="flex flex-col gap-4">
               {cart?.map((product, index) => {
@@ -71,9 +72,11 @@ function CartPage() {
         >
           <Button
             asChild
-            className="bg-card-action hover:bg-action mx-auto rounded-full px-20 py-3 text-center text-xl text-white"
+            className="bg-card-action hover:bg-action mx-auto rounded-md py-3 text-center text-xl text-white max-md:ml-auto max-md:mr-4"
           >
-            <Link href="/checkout">Proceed to checkout</Link>
+            <Link href="/checkout" className="max-md:text-sm">
+              Proceed to checkout
+            </Link>
           </Button>
         </CheckoutSummary>
       </div>
