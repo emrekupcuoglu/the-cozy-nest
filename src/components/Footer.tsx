@@ -84,13 +84,25 @@ function Footer() {
           Copyrights The Cozy Nest 2025. <span> All Rights Reserved.</span>
         </h3>
         <div className="flex items-center gap-2">
-          <Link href="" className="bg-background-light rounded-full p-2">
+          <Link
+            href=""
+            aria-label="To Instagram account"
+            className="bg-background-light rounded-full p-2"
+          >
             <IoLogoInstagram />
           </Link>
-          <Link href="" className="bg-background-light rounded-full p-2">
+          <Link
+            href=""
+            aria-label="To Twitter/X account"
+            className="bg-background-light rounded-full p-2"
+          >
             <RiTwitterXFill />
           </Link>
-          <Link href="" className="bg-background-light rounded-full p-2">
+          <Link
+            href=""
+            aria-label="To Facebook account"
+            className="bg-background-light rounded-full p-2"
+          >
             <FiFacebook />
           </Link>
         </div>
