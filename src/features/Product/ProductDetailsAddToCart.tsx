@@ -23,7 +23,7 @@ function ProductDetailsAddToCart({ product }: { product: Tables<"Product"> }) {
   }
 
   return (
-    <div className="pt-16">
+    <div className="items-center pt-16 max-xl:flex max-xl:items-center max-xl:gap-12 max-sm:flex-col max-sm:gap-2">
       <div className="bg-card-grey flex w-fit items-center justify-start gap-3 rounded-full px-3 py-2">
         <Button
           onClick={() => setQuantity((prev) => prev - 1)}
@@ -41,16 +41,16 @@ function ProductDetailsAddToCart({ product }: { product: Tables<"Product"> }) {
           +
         </Button>
       </div>
-      <div className="flex gap-2 pt-4">
+      <div className="flex items-center gap-2 pt-4 max-xl:pt-0 max-sm:flex-col max-sm:justify-center">
         <Button
           onClick={() => handleBuyNow(quantity)}
-          className="bg-card-action hover:bg-action rounded-full px-10 hover:text-black"
+          className="bg-card-action hover:bg-action rounded-full px-10 hover:text-black max-sm:w-full"
         >
           Buy Now
         </Button>
         <Button
           onClick={() => handleAddToCart(quantity)}
-          className="bg-background-hero hover:bg-background-light rounded-full px-10 hover:text-black"
+          className="bg-background-hero hover:bg-background-light rounded-full px-10 hover:text-black max-sm:w-full"
         >
           Add To Cart
         </Button>
