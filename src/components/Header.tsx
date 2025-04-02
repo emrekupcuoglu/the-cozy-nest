@@ -5,7 +5,7 @@ import NavigationCart from "./NavigationCart";
 function Header() {
   return (
     <header className="bg-header sticky top-0 z-[9999] w-full backdrop-blur-sm">
-      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] place-items-center items-center justify-between py-4 text-white max-lg:grid-cols-[auto_1fr] max-lg:py-6 max-md:grid-cols-[auto_1fr_auto] max-md:py-4 max-sm:py-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] place-items-center items-center justify-between px-6 py-4 text-white max-lg:grid-cols-[auto_1fr] max-lg:py-0 max-md:grid-cols-[auto_1fr_auto] max-md:py-4 max-sm:py-2">
         {/* <div className="bg-background-hero mx-auto flex max-w-7xl items-center justify-between py-10 text-white max-sm:py-2"> */}
         <Logo className="max-lg:col-span-2 max-md:col-span-1 max-md:col-start-2" />
 

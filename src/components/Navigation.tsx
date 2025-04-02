@@ -17,7 +17,7 @@ function Navigation({ className }: { className?: string }) {
     >
       <Button
         onClick={() => setIsMobileNavOpen((prev) => !prev)}
-        className="bg-background-light hover:bg-card-action z-50 hidden rounded-full p-3 text-white hover:text-black max-md:ml-4 max-md:flex"
+        className="bg-background-light hover:bg-card-action z-50 hidden self-start rounded-full p-3 text-white hover:text-black max-md:flex"
       >
         <Menu />
       </Button>
