@@ -62,7 +62,7 @@ function CartPage() {
         >
           <Button
             asChild
-            className="bg-card-action hover:bg-action mx-auto rounded-md py-3 text-center text-xl text-white max-md:ml-auto max-md:mr-4"
+            className="bg-card-action hover:bg-action mx-auto rounded-md py-3 text-center text-xl text-white max-lg:ml-auto max-lg:mr-4"
           >
             <Link href="/checkout" className="max-md:text-sm">
               Proceed to checkout

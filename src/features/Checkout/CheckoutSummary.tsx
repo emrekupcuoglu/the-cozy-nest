@@ -15,21 +15,21 @@ function CheckoutSummary({
   total: number;
 }) {
   return (
-    <aside className="bg-card-grey max-md sticky top-36 z-10 flex h-fit w-full max-w-sm flex-col gap-4 rounded-2xl max-lg:top-72 max-md:fixed max-md:bottom-0 max-md:top-auto">
+    <aside className="bg-card-grey max-md sticky top-0 z-10 flex h-fit w-full max-w-sm flex-col gap-4 rounded-2xl max-lg:fixed max-lg:bottom-0 max-lg:top-auto">
       <Card
         className={cn(
-          "bg-card-grey rounded-2xl border-none p-0 max-md:w-dvw max-md:rounded-none max-md:shadow-[-0px_-2px_8px_rgba(0,0,0,0.2)]",
+          "bg-card-grey rounded-2xl border-none p-0 max-lg:w-dvw max-lg:rounded-none max-lg:shadow-[-0px_-2px_8px_rgba(0,0,0,0.2)]",
           className,
         )}
       >
-        <CardHeader className="bg-background-hero rounded-t-2xl p-4 max-md:hidden">
+        <CardHeader className="bg-background-hero rounded-t-2xl p-4 max-lg:hidden">
           <div className="text-lg text-white">
             {/* <div className="grid grid-cols-[3fr_1fr_1fr_1fr] gap-x-8 text-lg text-white"> */}
             <p className="justify-self-start">Order Summary</p>
           </div>
         </CardHeader>
         <CardContent className="bg-card-grey rounded-b-2xl border-none p-0">
-          <div className="flex flex-col gap-4 p-4 pb-6 max-md:hidden max-md:flex-row max-md:items-center max-md:justify-between">
+          <div className="flex flex-col gap-4 p-4 pb-6 max-lg:hidden max-md:flex-row max-md:items-center max-md:justify-between">
             <div className="flex justify-between">
               <p>Total</p>
               <p>{subtotal ? `$${subtotal}` : null}</p>
@@ -48,7 +48,7 @@ function CheckoutSummary({
             {children}
           </div>
 
-          <div className="hidden w-dvw py-8 pl-8 max-md:flex max-md:items-center max-md:justify-between">
+          <div className="hidden w-dvw py-8 pl-8 max-lg:flex max-lg:items-center max-lg:justify-between">
             <div>
               <p>Total</p>
               <p className="font-bold">${total}</p>

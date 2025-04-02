@@ -17,10 +17,10 @@ function ProductList({ products }: { products: Tables<"Product">[] }) {
     window.history.pushState(null, "", url.toString());
   }
   return (
-    <div className="flex w-full flex-col gap-8">
+    <div className="flex w-full flex-col gap-8 max-md:text-sm">
       <div className="flex items-center justify-between">
-        <h2>Showing Result 1-15 of 400</h2>
-        <div className="flex items-center gap-4">
+        <h2 className="max-md:hidden">Showing Result 1-15 of 400</h2>
+        <div className="flex items-center gap-4 max-md:gap-2 max-md:text-end">
           <p>Sort By:</p>
           <Select onValueChange={handleSelectChange}>
             <SelectTrigger className="w-[180px]">

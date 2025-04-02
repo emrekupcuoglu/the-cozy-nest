@@ -23,7 +23,7 @@ function Navigation({ className }: { className?: string }) {
       </Button>
       <div
         className={cn(
-          "max-md:bg-overlay left-0 top-0 flex w-full flex-col items-center justify-center gap-16 p-4 opacity-100 transition-all duration-1000 max-lg:gap-8 max-md:absolute max-md:h-96 max-md:-translate-x-[200%] max-md:opacity-0 max-md:backdrop-blur-md",
+          "max-md:bg-overlay duration-400 left-0 top-0 flex w-full flex-col items-center justify-center gap-16 p-4 opacity-100 transition-all max-lg:gap-8 max-md:absolute max-md:h-96 max-md:-translate-x-[200%] max-md:opacity-0 max-md:backdrop-blur-md",
           isMobileNavOpen && "max-md:translate-x-0 max-md:opacity-100",
         )}
       >

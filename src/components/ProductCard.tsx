@@ -13,6 +13,8 @@ import { ProductType } from "@/types";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 function ProductCard({
   product,
@@ -23,8 +25,16 @@ function ProductCard({
 }) {
   const { addToCart } = useLocalStorageCart();
 
+  const router = useRouter();
+
   function handleAddToCart(product: ProductType) {
     addToCart(product);
+    toast("Added to cart", {
+      action: {
+        label: "Go to cart",
+        onClick: () => router.push("/cart"),
+      },
+    });
   }
 
   return (
