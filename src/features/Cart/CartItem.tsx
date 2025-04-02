@@ -74,30 +74,6 @@ function CartItem({
             </div>
           </div>
         </div>
-
-        {/* <div className="flex w-fit items-center justify-center gap-3 rounded-full px-3 py-2">
-          <Button
-            onClick={() => handleDecrement()}
-            className="hover:bg-card-action bg-card-grey rounded-full border text-black"
-            size="sm"
-          >
-            -
-          </Button>
-          <Input
-            onChange={onChange}
-            value={quantity}
-            className="w-12 text-center text-black max-md:w-10 max-md:text-xs"
-          >
-
-          </Input>
-          <Button
-            onClick={() => handleIncrement()}
-            className="hover:bg-card-action bg-card-grey rounded-full border text-black"
-            size="sm"
-          >
-            +
-          </Button>
-        </div> */}
       </div>
 
       <div className="self-end pr-2">
@@ -105,44 +81,6 @@ function CartItem({
       </div>
     </div>
   );
-
-  // return (
-  //   <div className="grid grid-cols-[3fr_1fr_1fr] place-items-center gap-x-8 text-lg max-md:text-sm">
-  //     <div className="flex w-full items-center gap-2 justify-self-start">
-  //       <div className="flex rounded-md bg-white p-2">
-  //         <div className="relative aspect-square h-8">
-  //           {product.url && <Image src={product.url} fill alt="" />}
-  //         </div>
-  //       </div>
-  //       <p className="text-ellipsis text-nowrap">{product.name}k</p>
-  //     </div>
-
-  //     {/* <div className="w-full">
-  //       <p className="text-start">{product.price - Number(product.discount)}</p>
-  //     </div> */}
-  // <div className="bg-card-grey flex w-full items-center justify-start gap-3 rounded-full px-3 py-2">
-  //   <Button
-  //     onClick={() => handleDecrement()}
-  //     className="hover:bg-card-action rounded-full bg-white text-black"
-  //     size="sm"
-  //   >
-  //     -
-  //   </Button>
-  //   <span className="w-12 text-center">{quantity}</span>
-  //   <Button
-  //     onClick={() => handleIncrement()}
-  //     className="hover:bg-card-action rounded-full bg-white text-black"
-  //     size="sm"
-  //   >
-  //     +
-  //   </Button>
-  // </div>
-
-  //     <div>
-  //       <p>${total}</p>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default CartItem;

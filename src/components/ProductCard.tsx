@@ -76,6 +76,7 @@ function ProductCard({
         <Button
           onClick={() => handleAddToCart(product)}
           className="border-card-action rounded-full border-4 bg-transparent p-4"
+          aria-label="add to cart"
         >
           <FaShoppingCart className="fill-card-action" />
         </Button>

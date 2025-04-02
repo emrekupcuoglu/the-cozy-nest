@@ -53,6 +53,7 @@ function HeroGallery({ className }: { className?: string }) {
 
       <div className="flex gap-6 max-md:justify-center">
         <Button
+          aria-label="Previous slide"
           onClick={handlePrev}
           className={`${selected !== 0 ? "bg-action hover:bg-card-action" : "bg-background-light"} w-20 rounded-full px-4 py-2`}
           disabled={selected === 0}
@@ -60,6 +61,7 @@ function HeroGallery({ className }: { className?: string }) {
           <HiArrowLongLeft />
         </Button>
         <Button
+          aria-label="Next slide"
           onClick={handleNext}
           className={`${selected !== 2 ? "bg-action hover:bg-card-action" : "bg-background-light"} w-20 rounded-full px-4 py-2`}
           disabled={selected === 2}

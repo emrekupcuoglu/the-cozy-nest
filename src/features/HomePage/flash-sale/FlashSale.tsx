@@ -73,7 +73,10 @@ function FlashSale() {
           </CardContent>
           <CardFooter className="justify-between gap-12 p-0 max-md:justify-center">
             <p>Rustic Coffee Table</p>
-            <Button className="bg-card-action text-white">
+            <Button
+              aria-label="go to products"
+              className="bg-card-action text-white"
+            >
               <HiArrowLongRight />
             </Button>
           </CardFooter>
@@ -88,7 +91,10 @@ function FlashSale() {
           </CardContent>
           <CardFooter className="justify-between gap-12 p-0 max-md:justify-center">
             <p>Rustic Coffee Table</p>
-            <Button className="bg-card-action text-white">
+            <Button
+              aria-label="go to products"
+              className="bg-card-action text-white"
+            >
               <HiArrowLongRight />
             </Button>
           </CardFooter>

@@ -33,6 +33,7 @@ function ProductDetailsAddToCart() {
         </Button>
 
         <Button
+          aria-label="add to favorites"
           className="hover:bg-card-action border-card-grey rounded-full border-2 bg-white text-black hover:shadow-lg hover:*:text-white"
           size="sm"
         >
