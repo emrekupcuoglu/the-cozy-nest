@@ -48,7 +48,8 @@ export async function getAllProducts() {
 }
 
 export async function getProductById(id: number) {
-  const supabase = await createBrowserClient();
+  // const supabase = await createBrowserClient();
+  const supabase = await createServerClient();
 
   const { data, error } = await supabase
     .from("Product")

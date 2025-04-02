@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ProductDescription from "./ProductDescription";
 import ProductTechnicalDetails from "./ProductTechnicalDetails";
+import { Tables } from "@/lib/supabase/database.types";
 
-function ProductInformation() {
+function ProductInformation({ product }: { product: Tables<"Product"> }) {
   const [activeTab, setActiveTab] = useState("description");
 
   return (

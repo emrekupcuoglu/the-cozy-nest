@@ -17,8 +17,15 @@ import StarRating from "@/components/StarRating";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import ProductDetailsAddToCart from "./ProductDetailsAddToCart";
+import { Tables } from "@/lib/supabase/database.types";
 
-function ProductDetails({ className }: { className: string }) {
+function ProductDetails({
+  product,
+  className,
+}: {
+  product: Tables<"Product">;
+  className: string;
+}) {
   return (
     <div className={cn("flex gap-24", className)}>
       <div className="w-1/2">
@@ -155,7 +162,7 @@ function ProductDetails({ className }: { className: string }) {
               <p className="">43 sold</p>
             </div>
           </div>
-          <ProductDetailsAddToCart />
+          <ProductDetailsAddToCart product={product} />
         </div>
       </div>
     </div>
