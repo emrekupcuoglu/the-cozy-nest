@@ -16,7 +16,7 @@ async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
       </div>
       <div className="mx-auto flex max-w-7xl flex-col pt-24">
         <ProductDetails className="pb-24 max-md:pb-8" product={product} />
-        {/* <ProductInformation product={product} /> */}
+        <ProductInformation product={product} />
       </div>
     </div>
   );

@@ -10,8 +10,8 @@ const features = [
 
 function ProductDescription() {
   return (
-    <div className="flex flex-col">
-      <div className="mx-auto">
+    <div className="flex flex-col max-md:text-sm">
+      <div className="mx-auto px-8">
         <p className="mx-auto max-w-[75ch] pb-16">
           This luxurious chair features a sleek black leather finish, providing
           both style and comfort. Its modern design is complemented by sturdy
@@ -26,7 +26,7 @@ function ProductDescription() {
           durability.
         </p>
 
-        <h3 className="pb-6 text-4xl">About This Item</h3>
+        <h3 className="pb-6 text-4xl max-md:text-3xl">About This Item</h3>
         <ul className="flex list-none flex-col gap-6">
           {features.map((feature, index) => {
             return (
