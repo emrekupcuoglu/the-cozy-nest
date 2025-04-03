@@ -9,6 +9,7 @@ import { getProductsByFilterClient } from "@/lib/supabase/data-service-client";
 function Products({ products }: { products: Tables<"Product">[] }) {
   const searchParams = useSearchParams();
 
+  const category = searchParams.get("category") || "undefined";
   const color = searchParams.get("color")!;
   const material = searchParams.get("material")!;
   const priceLow = searchParams.get("low")!;
@@ -20,6 +21,7 @@ function Products({ products }: { products: Tables<"Product">[] }) {
   useEffect(() => {
     async function getProducts() {
       const products = await getProductsByFilterClient({
+        category,
         color,
         material,
         priceLow,

@@ -74,7 +74,7 @@ function ProductFilter() {
 
   function onSubmit(data: ProductFormProps) {
     const url = new URL(window.location.href);
-    url.searchParams.set("categories", data?.categories?.join(","));
+    url.searchParams.set("category", data?.categories?.join(","));
     url.searchParams.set("price", data?.price?.join(","));
     url.searchParams.set("materials", data?.materials?.join(","));
     url.searchParams.set("availability", data?.availability);

@@ -1,12 +1,14 @@
 import { supabaseClientAnon } from "./client";
 
 export async function getProductsByFilterClient({
+  category,
   color,
   material,
   priceLow,
   priceHigh,
   sort,
 }: {
+  category: string;
   color: string;
   material: string;
   priceLow: string;
@@ -14,6 +16,10 @@ export async function getProductsByFilterClient({
   sort: string;
 }) {
   const query = supabaseClientAnon.from("Product").select("*");
+
+  console.log("category", category);
+
+  if (category && category !== "undefined") query.eq("category", category);
 
   if (color && color !== "undefined") query.eq("color", color);
 

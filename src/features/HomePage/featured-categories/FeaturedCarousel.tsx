@@ -26,7 +26,7 @@ function FeaturedCarousel() {
           </div>
           <CarouselContent className="">
             <CarouselItem className="basis-1/3 max-md:basis-1/2 max-sm:basis-full">
-              <FeaturedCarouselItem src={clockImg}>
+              <FeaturedCarouselItem category="clock" src={clockImg}>
                 <CarouselLabel
                   title="Wall Clock"
                   description="Discover 20 items"
@@ -34,12 +34,12 @@ function FeaturedCarousel() {
               </FeaturedCarouselItem>
             </CarouselItem>
             <CarouselItem className="basis-1/3 max-md:basis-1/2 max-sm:basis-full">
-              <FeaturedCarouselItem src={chairImg}>
+              <FeaturedCarouselItem category="chair" src={chairImg}>
                 <CarouselLabel title="Chair" description="Discover 40 items" />
               </FeaturedCarouselItem>
             </CarouselItem>
             <CarouselItem className="basis-1/3 max-md:basis-1/2 max-sm:basis-full">
-              <FeaturedCarouselItem src={pillowImg}>
+              <FeaturedCarouselItem category="pillow" src={pillowImg}>
                 <CarouselLabel
                   title="Pillow"
                   description="Discover 120 items"
@@ -47,7 +47,7 @@ function FeaturedCarousel() {
               </FeaturedCarouselItem>
             </CarouselItem>
             <CarouselItem className="basis-1/3 max-md:basis-1/2 max-sm:basis-full">
-              <FeaturedCarouselItem src={wardrobeImg}>
+              <FeaturedCarouselItem category="cabinet " src={wardrobeImg}>
                 <CarouselLabel
                   title="Wardrobe"
                   description="Discover 15 items"
@@ -55,7 +55,7 @@ function FeaturedCarousel() {
               </FeaturedCarouselItem>
             </CarouselItem>
             <CarouselItem className="basis-1/3 max-md:basis-1/2 max-sm:basis-full">
-              <FeaturedCarouselItem src={tvStandImg}>
+              <FeaturedCarouselItem category="drawer" src={tvStandImg}>
                 <CarouselLabel
                   title="Drawers"
                   description="Discover 75 items"
