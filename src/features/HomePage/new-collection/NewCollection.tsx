@@ -13,13 +13,15 @@ function NewCollection() {
             <span className="rounded-full bg-white px-3 py-2 font-bold uppercase">
               NEW COLLECTION
             </span>
-            <h1 className="mt-4">
-              <strong>Center Table</strong>
-            </h1>
-            <p>Square table</p>
-            <p>Round table</p>
-            <p>Wooden table</p>
-            <p>Glass table</p>
+            <div className="pl-3 pt-4">
+              <h1 className="">
+                <strong>Center Table</strong>
+              </h1>
+              <p>Square table</p>
+              <p>Round table</p>
+              <p>Wooden table</p>
+              <p>Glass table</p>
+            </div>
           </div>
           <div>
             <Image
@@ -37,13 +39,15 @@ function NewCollection() {
             <span className="rounded-full bg-white px-3 py-2 font-bold uppercase">
               NEW COLLECTION
             </span>
-            <h1 className="mt-4">
-              <strong>Elegant Chairs</strong>
-            </h1>
-            <p>Arm chair</p>
-            <p>Cafe chair</p>
-            <p>L chair</p>
-            <p>Office chair</p>
+            <div className="pl-3 pt-4">
+              <h1 className="">
+                <strong>Elegant Chairs</strong>
+              </h1>
+              <p>Arm chair</p>
+              <p>Cafe chair</p>
+              <p>L chair</p>
+              <p>Office chair</p>
+            </div>
           </div>
           <div className="pl-8">
             <Image
@@ -61,12 +65,14 @@ function NewCollection() {
             <span className="rounded-full bg-white px-3 py-2 text-xs font-bold uppercase">
               NEW COLLECTION
             </span>
-            <h1 className="mt-4">
-              <strong>Lamps</strong>
-            </h1>
-            <p>Tripod lamps</p>
-            <p>Study lamps</p>
-            <p>Table lamps</p>
+            <div className="pl-3 pt-4">
+              <h1 className="">
+                <strong>Lamps</strong>
+              </h1>
+              <p>Tripod lamps</p>
+              <p>Study lamps</p>
+              <p>Table lamps</p>
+            </div>
           </div>
           <div className="">
             <Image
@@ -82,7 +88,7 @@ function NewCollection() {
         className="bg-background-hero items-center justify-center"
         gridStyle="col-span-2 h-full max-md:col-span-1"
       >
-        <div className="flex h-full flex-col items-center justify-center text-white">
+        <div className="flex h-full flex-col items-center justify-center gap-2 text-white">
           <span className="bg-card-action rounded-full px-3 py-2 text-center">
             GET DISCOUNT
           </span>
