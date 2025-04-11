@@ -22,6 +22,3 @@ There is a bare-bones admin panel behind supabase auth right now. You can access
 ## Overview
 
 https://github.com/user-attachments/assets/06c8a4fe-2daa-470a-972b-f3258d723d99
-
-
-
