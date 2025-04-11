@@ -15,7 +15,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 function AdminLoginForm() {
   const form = useForm<LoginFormSchema>({
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: "emre@example.com", password: "pass1234" },
     resolver: zodResolver(loginFormSchema),
   });
 
