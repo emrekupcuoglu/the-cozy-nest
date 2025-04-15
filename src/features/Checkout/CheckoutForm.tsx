@@ -65,7 +65,7 @@ function CheckoutForm() {
       >
         <h2 className="pb-4 text-4xl">Billing Details</h2>
         {/* <div className="flex gap-16 pb-8 max-lg:gap-8"> */}
-        <div className="grid grid-cols-[2fr_1fr] gap-x-16 gap-y-12 pb-8 max-lg:gap-8 max-md:grid-cols-1">
+        <div className="grid grid-cols-[2fr_1fr] gap-x-16 gap-y-12 pb-8 max-lg:grid-cols-1 max-lg:gap-8">
           <Card className="flex-col gap-16 p-16 max-lg:gap-8">
             <div className="flex gap-12 max-lg:flex-col">
               <FormField
@@ -203,7 +203,7 @@ function CheckoutForm() {
             shipping={shipping}
             subtotal={subtotal}
             total={total}
-            className="h-fit max-md:row-start-1"
+            className="h-fit max-lg:row-start-1"
           >
             <div className="flex justify-around gap-2 max-md:pr-8 max-sm:flex-col">
               <Button type="submit" className="bg-card-action hover:bg-action">

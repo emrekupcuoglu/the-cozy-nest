@@ -15,7 +15,7 @@ function CheckoutSummary({
   total: number;
 }) {
   return (
-    <aside className="bg-card-grey max-md sticky top-0 z-10 flex h-fit w-full max-w-sm flex-col gap-4 rounded-2xl max-lg:fixed max-lg:bottom-0 max-lg:top-auto">
+    <aside className="bg-card-grey max-md sticky top-44 z-10 flex h-fit w-full max-w-sm flex-col gap-4 rounded-2xl max-lg:fixed max-lg:bottom-0 max-lg:top-auto">
       <Card
         className={cn(
           "bg-card-grey rounded-2xl border-none p-0 max-lg:w-dvw max-lg:rounded-none max-lg:shadow-[-0px_-2px_8px_rgba(0,0,0,0.2)]",
