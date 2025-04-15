@@ -413,7 +413,7 @@ function ProductFilter() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Filter</Button>
         </form>
       </Form>
     </div>
