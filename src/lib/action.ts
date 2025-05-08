@@ -40,7 +40,6 @@ export async function login(inputData: LoginFormSchema) {
     throw new Error(error.message);
   }
 
-  // if (data?.user?.role !== "authenticated")
   redirect("/admin");
 
   return data;
@@ -88,6 +87,20 @@ export async function signup(inputData: SignupFormSchema) {
   if (data?.user?.role !== "authenticated") redirect("/admin/");
 
   return { message: "Success" };
+}
+
+export async function logout() {
+  console.log("logout test");
+  const supabase = await createServerClient();
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error(error.message);
+  }
+
+  redirect("/admin");
 }
 
 export async function createNewImage(inputData: MediaFormSchema) {

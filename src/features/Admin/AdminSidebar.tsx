@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -10,6 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { logout } from "@/lib/action";
 import Link from "next/link";
 
 function AdminSidebar() {
@@ -58,7 +60,9 @@ function AdminSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>Admin footer</SidebarFooter>
+      <SidebarFooter>
+        <Button onClick={logout}>Sign out</Button>
+      </SidebarFooter>
     </Sidebar>
   );
 }
