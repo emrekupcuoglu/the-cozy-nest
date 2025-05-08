@@ -10,7 +10,7 @@ export async function createServerClient() {
 
   return createServerClientAPI<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
@@ -32,6 +32,7 @@ export async function createServerClient() {
   );
 }
 
+// ! This overrides the Row Level Security (RLS) policy
 export async function createBrowserClient() {
   return createBrowserClientAPI<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
